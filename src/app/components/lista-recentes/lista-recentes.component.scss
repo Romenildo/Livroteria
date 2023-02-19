@@ -1,0 +1,35 @@
+.box{
+    background-color: #161621;
+    padding: 10px;
+    margin-top: 30px;
+
+    .box-lista{
+        padding: 10px;
+
+        .lista{
+            padding-top: 10px;
+            .item{
+                display: flex;
+                margin-top: 8px;
+                border: 1px gray solid;
+                img{
+                    width: 55px;
+                    height: 80px;
+                    padding: 5px;
+                }
+                .info{
+                    padding: 8px 5px 5px 10px;
+                    font-size: 0.9em;
+                    .autor{
+                        color: gray;
+                        font-size: 0.7em;
+                        padding-top: 3px;
+                        
+                    }
+                }
+
+            }
+        }
+    }
+
+}

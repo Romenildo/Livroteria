@@ -13,6 +13,7 @@ import { ListaLivrosComponent } from './components/lista-livros/lista-livros.com
 import { LivroComponent } from './components/lista-livros/livro/livro.component';
 import { LivroDetalheComponent } from './components/lista-livros/livro-detalhe/livro-detalhe.component';
 import { FiltroComponent } from './components/filtro/filtro.component';
+import { ListaRecentesComponent } from './components/lista-recentes/lista-recentes.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { FiltroComponent } from './components/filtro/filtro.component';
     ListaLivrosComponent,
     LivroComponent,
     LivroDetalheComponent,
-    FiltroComponent
+    FiltroComponent,
+    ListaRecentesComponent
   ],
   imports: [
     BrowserModule,

@@ -1,1 +1,54 @@
-<p>cadastro works!</p>
+<div class="box">
+    <div class="linha">
+        <h1>Cadastro de livros</h1>
+        <p>Bem vindo ao cadastro para o gerenciamento dos livros na <strong>Livroteria</strong>. </p>
+    </div>
+
+    <div class="box-cadastro">
+        <div class="box-imagem">
+            <img src="https://m.media-amazon.com/images/I/813AjLroLIL._AC_UL480_FMwebp_QL65_.jpg" alt="">
+            
+            <div class="input-imagem">
+                <div class="item">
+                    <input type="file" name="" id="file-img">
+                </div>
+                <div class="item">
+                    <input type="text" id="file-string" placeholder="Url Imagem">
+                </div>
+            </div>
+                        
+        </div>
+    
+            <form class="box-formulario">
+                
+                <div class="form-superior">
+                    <div class="titulos">
+                        <input type="text" id="titulo" placeholder="Titulo*">
+                        <input type="text" id="subTitulo" placeholder="Subtitulo">
+                    </div>
+                    <div class="edicao">
+                        <input type="text" id="edicao" placeholder="Nº">
+                        <span>ª Edicao</span>
+                    </div>
+                    
+                </div>
+                
+                <input type="text" id="autor" placeholder="Autor*">
+                <input type="text" id="editora" placeholder="Editora*">
+                <div class="form-inferior">
+                    <input type="text" id="qtPag" placeholder="Paginas*">
+                    <div class="data">
+                        <span>Data publicacao: </span>
+                        <input type="date" name="data" id="data">
+                    </div>
+                    
+                </div>
+                <textarea name="Text1" cols="60" rows="5" placeholder="Resumo"></textarea>
+                <div class="button">
+                    <button type="submit">Cadastrar</button>
+                </div>
+                
+            </form>
+        
+    </div>
+</div>
