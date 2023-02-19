@@ -1,0 +1,32 @@
+.box-livro{
+    border: 1x solid gray;
+    padding: 10px;
+    box-shadow: 0 0 4px gray;
+
+    &:hover{
+        opacity: 0.8;
+    }
+    img{
+        height: 230px;
+        width: 160px;
+        padding: 0px 24px;
+    }
+
+    .titulo{
+        padding: 5px 0px;
+        font-size: 17.5px;
+        .edicao{
+            font-size: 13px;
+        }
+    }
+    .detalhes{
+        padding-top: 20px;
+        color: rgb(153, 152, 152);
+        font-size: 15.5px;
+
+        .destaque:hover{
+            color: var(--primaria);
+            cursor: pointer;
+        }
+    }
+}

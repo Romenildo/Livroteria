@@ -1,0 +1,22 @@
+
+.nav-box{
+    display: flex;
+    list-style: none;
+    margin-left: 40px; 
+    text-decoration: none;
+    li{
+        padding: 9.7px 15px;
+        a{
+            padding: 20px;
+            text-decoration: none;
+            color: #fff;
+        }
+
+        
+        &:hover{
+            border: 1px solid #000;
+            opacity: 0.8;
+        }
+    }
+    
+}

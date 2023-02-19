@@ -1,1 +1,8 @@
-<p>lista-livros works!</p>
+
+
+<div class="lista-livros">
+    <app-livro
+        *ngFor="let livro of livros"
+        [livro] = "livro"
+    ></app-livro>
+</div>
