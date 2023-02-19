@@ -31,7 +31,7 @@
 
         .campo{
             margin-top: 15px;
-            
+            display: flex;
             input{
                 background-color: var(--secundaria);
                 width: 390px;
@@ -41,17 +41,23 @@
                 border: 1px solid;
                 border-radius: 4px 0px 0px 4px;
                 &:focus{
-                    box-shadow: 0 0 8px var(--primaria);
+                    box-shadow: 0 0 6px var(--primaria);
                 }
             }
-            button{
+            .button{ 
+                
                 background-color: var(--secundaria);
                 width: 50px;
-                height: 33px;
+                height: 30px; 
                 border-radius: 0px 4px 4px 0px;
+                border: 1px solid;
                 &:hover{
+                    border: 1px solid rgb(72, 72, 72);
                     cursor: pointer;
                     opacity: 0.8;
+                }
+                img{
+                    margin: 3.5px 0px 0px 12px;
                 }
             }
         }
