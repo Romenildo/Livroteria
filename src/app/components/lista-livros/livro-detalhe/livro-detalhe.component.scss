@@ -1,0 +1,90 @@
+
+
+.box{
+    width: 520px;
+    height: 320px;
+    background-color: #161621;
+    border: 1px solid gray;
+    border-radius: 3px;
+
+    .acoes{
+        display: flex;
+        gap: 20px;
+        justify-content: flex-end;
+        padding-right: 20px;
+        margin-top: 5px;
+        .button{
+            background-color: var(--secundaria);
+            width: 30px;
+            height: 20px; 
+            border-radius: 4px;
+            border: 1px solid;
+            &:hover{
+                border: 1px solid rgb(72, 72, 72);
+                cursor: pointer;
+                opacity: 0.8;
+            }
+            img{
+                margin-left: 5px;
+            }
+        }
+    }
+    .conteudo{
+        display: flex;
+        .box-imagem{
+            padding: 10px;
+            margin: 10px;
+            border: 1px solid gray;
+            border-radius: 4px;
+            img{
+                width: 150px;
+                height: 230px;
+            }
+            &:hover{
+                box-shadow: 0 0 6px var(--primaria);
+            }
+        }
+
+        .detalhes{
+            margin-top: -10px;
+            .titulo{
+                padding: 5px;
+                padding-top: 20px;
+                font-size: 18px;
+            }
+
+            .publicacao{
+                padding: 15px;
+                font-size: 0.8em;
+                color: gray;
+                line-height: 20px;
+            }
+            .resumo{
+                border: 1px gray solid;
+                border-radius: 4px;
+                font-size: 0.9em;
+                color: rgb(78, 78, 78);
+                width: 93%;
+                height: 90px;
+                padding: 5px;
+                margin-top: -13px;
+            }
+        }
+    }
+
+    .generos{
+        margin-top: -6px;
+        font-size: 12px;
+        margin-left: 40px;
+        display: flex;
+        gap: 10px;
+        
+        p{
+            border: 1px solid rgb(36, 36, 36);
+            border-radius: 4px;
+            padding: 1.5px 5px;
+            
+            background-color: rgb(42, 42, 42);
+        }
+    }
+}
