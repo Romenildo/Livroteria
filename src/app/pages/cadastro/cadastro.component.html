@@ -2,50 +2,120 @@
     <div class="linha">
         <h1>Cadastro de livros</h1>
         <p>Bem vindo ao cadastro para o gerenciamento dos livros na <strong>Livroteria</strong>. </p>
+        <p class="aviso"> Os campos com (*) são obrigatórios</p>
     </div>
 
     <div class="box-cadastro">
         <div class="box-imagem">
-            <img src="https://m.media-amazon.com/images/I/813AjLroLIL._AC_UL480_FMwebp_QL65_.jpg" alt="">
+            <img [src]="imagemView" alt="Vazio ou Imagem Inválida">
             
             <div class="input-imagem">
                 <div class="item">
                     <input type="file" name="" id="file-img">
                 </div>
                 <div class="item">
-                    <input type="text" id="file-string" placeholder="Url Imagem">
+                    <input 
+                     type="text" 
+                     id="file-string" 
+                     placeholder="Url Imagem" 
+                     #imagem
+                     (mouseleave)="atualizarImagem(imagem.value)"
+                     >
                 </div>
             </div>
                         
         </div>
     
-            <form class="box-formulario">
+            <form (ngSubmit)="cadastrarLivro(f, imagem.value)" #f="ngForm" class="box-formulario">
                 
                 <div class="form-superior">
                     <div class="titulos">
-                        <input type="text" id="titulo" placeholder="Titulo*">
-                        <input type="text" id="subTitulo" placeholder="Subtitulo">
+                        <input 
+                         type="text" 
+                         id="titulo" 
+                         placeholder="Titulo*" 
+                         name="titulo"
+                         ngModel
+                         required
+                         maxlength="100"
+                         >
+                        <input 
+                         type="text"
+                         id="subTitulo" 
+                         placeholder="Subtitulo"
+                         name="subTitulo"
+                         ngModel
+                         maxlength="100"
+                         >
                     </div>
                     <div class="edicao">
-                        <input type="text" id="edicao" placeholder="Nº">
+                        <input 
+                         type="number" 
+                         id="edicao" 
+                         placeholder="Nº"
+                         name="edicao"
+                         ngModel
+                         max="20"
+                         min="0"
+                         >
                         <span>ª Edicao</span>
                     </div>
                     
                 </div>
                 
-                <input type="text" id="autor" placeholder="Autor*">
-                <input type="text" id="editora" placeholder="Editora*">
+                <input 
+                 type="text" 
+                 id="autor" 
+                 placeholder="Autor*"
+                 name="autor"
+                 ngModel
+                 required
+                 maxlength="50"
+                 >
+                <input 
+                 type="text" 
+                 id="editora" 
+                 placeholder="Editora*"
+                 name="editora"
+                 ngModel
+                 required
+                 maxlength="150"
+                 >
                 <div class="form-inferior">
-                    <input type="text" id="qtPag" placeholder="Paginas*">
+                    <input 
+                     type="number" 
+                     id="qtPag" 
+                     placeholder="Paginas*"
+                     name ="quantidadePaginas"
+                     ngModel
+                     required
+                     max="10000"
+                     min="0"
+                     >
                     <div class="data">
-                        <span>Data publicacao: </span>
-                        <input type="date" name="data" id="data">
+                        <span>Data publicacao*: </span>
+                        <input 
+                         type="date" 
+                         name="data" 
+                         id="data"
+                         name = "data"
+                         ngModel
+                         required    
+                         >
                     </div>
                     
                 </div>
-                <textarea name="Text1" cols="60" rows="5" placeholder="Resumo"></textarea>
+                <textarea 
+                  name="Text1" 
+                  cols="60" 
+                  rows="5" 
+                  placeholder="Resumo"
+                  name = "resumo"
+                  ngModel
+                  maxlength="500"
+                  ></textarea>
                 <div class="button">
-                    <button type="submit">Cadastrar</button>
+                    <button type="submit" [disabled]="!f.valid">Cadastrar</button>
                 </div>
                 
             </form>

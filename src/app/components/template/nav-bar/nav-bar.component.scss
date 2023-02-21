@@ -12,11 +12,16 @@
             color: #fff;
         }
 
-        
+
         &:hover{
             border: 1px solid #000;
             opacity: 0.8;
         }
     }
     
+}
+
+.active{
+    border: 1px solid #000;
+    text-decoration: underline;
 }

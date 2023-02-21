@@ -7,6 +7,11 @@
             color: var(--primaria);
             padding-bottom: 5px;
         } 
+        .aviso{
+            font-size: 0.7em;
+            padding-left: 350px;
+            color: rgba(255, 5, 5, 0.644);
+        }
     }
     .box-cadastro{
         display: flex;
@@ -61,7 +66,7 @@
                     display: flex;
                     margin: 12px;
                     input{
-                        width: 25px;
+                        width: 35px;
                     }
                     span{
                         margin-top: 20px;
@@ -103,7 +108,7 @@
                 }
                 
                 &#qtPag{
-                    width: 65px;
+                    width: 80px;
                     padding-left: 5px;
                 }
                 &#data{

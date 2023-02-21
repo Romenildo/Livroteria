@@ -14,6 +14,7 @@ import { LivroComponent } from './components/lista-livros/livro/livro.component'
 import { LivroDetalheComponent } from './components/lista-livros/livro-detalhe/livro-detalhe.component';
 import { FiltroComponent } from './components/filtro/filtro.component';
 import { ListaRecentesComponent } from './components/lista-recentes/lista-recentes.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { ListaRecentesComponent } from './components/lista-recentes/lista-recent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
