@@ -10,6 +10,10 @@
     box-sizing: 0;
     font-family: Arial, sans-serif;
   }
+
+  ::-webkit-scrollbar {
+    width: 1px;
+  }
   
   html {
     @media (max-width: 1080px) {

@@ -5,7 +5,7 @@
     max-height: 320px;
     overflow-y: scroll;
     &:hover{
-        cursor: pointer;
+        
         box-shadow: 0 0 6px var(--primaria);
     }
     img{
@@ -32,8 +32,4 @@
             cursor: pointer;
         }
     }
-}
-
-::-webkit-scrollbar {
-    width: 1px;
 }

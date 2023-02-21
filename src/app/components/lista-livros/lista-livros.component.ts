@@ -11,20 +11,18 @@ import { LivroService } from 'src/app/services/livro.service';
 export class ListaLivrosComponent implements OnInit {
 
   livros:Livro[] = []
-
+  filtroAtual:string = ""
   constructor(private livroService: LivroService) {}
 
   ngOnInit(): void {
+    this.livroService.livros$.subscribe(livros => this.livros = livros)
+
     this.livroService.getLivros().subscribe(
-      {
-        next: (res) => {
-          console.log(res)
-          this.livros = res as any
-        },
-        error: err => alert("Erro na Requisicao com o servidor!")
-      }
+      (res:any)=> this.livroService.livros$.next(res)
     )
   }
+
+
 
   
 }

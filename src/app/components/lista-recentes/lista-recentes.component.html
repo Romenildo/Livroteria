@@ -3,36 +3,14 @@
         <h2>Ultimos adicionados</h2>
         
         <div class="lista">
-            <div class="item">
-                <img src="https://m.media-amazon.com/images/I/81se6PiCnjL._AC_UL480_FMwebp_QL65_.jpg" alt="">
+
+            <div class="item" *ngFor="let livro of livrosRecentes">
+                <img [src]="livro.imagem" alt="">
                 <div class="info">
-                    <p>O Começo depois do Fim (1ªEdicao)</p>
-                    <p class="autor">TurtleMe  por</p>
-                    <p class="autor">sekaiScan</p>
-                </div>
-            </div>
-            <div class="item">
-                <img src="https://m.media-amazon.com/images/I/81eqlOf4owL._AC_UL480_FMwebp_QL65_.jpg" alt="">
-                <div class="info">
-                    <p>O Começo depois do Fim (8ªEdicao)</p>
-                    <p class="autor">TurtleMe  por</p>
-                    <p class="autor">sekaiScan</p>
-                </div>
-            </div>
-            <div class="item">
-                <img src="https://m.media-amazon.com/images/I/819mijcOqnL._AC_UL480_FMwebp_QL65_.jpg" alt="">
-                <div class="info">
-                    <p>O Começo depois do Fim (9ªEdicao)</p>
-                    <p class="autor">TurtleMe  por</p>
-                    <p class="autor">sekaiScan</p>
-                </div>
-            </div>
-            <div class="item">
-                <img src="https://m.media-amazon.com/images/I/813AjLroLIL._AC_UL480_FMwebp_QL65_.jpg" alt="">
-                <div class="info">
-                    <p>O Começo depois do Fim (11ªEdicao)</p>
-                    <p class="autor">TurtleMe  por</p>
-                    <p class="autor">sekaiScan</p>
+                    <p>{{livro.titulo}}({{livro.edicao}}ªEdicao)</p>
+                    <span class="autor" *ngFor="let autor of livro.autores">autor,  </span>
+                    <span class="autor">por</span>
+                    <p class="autor">{{livro.editora}}</p>
                 </div>
             </div>
             

@@ -2,13 +2,13 @@
 
 <div class="box-header">
     <div class="header">
-        <div class="logo">
+        <div class="logo" routerLink="/livros">
             <img src="../../../../assets/logo.png" alt="">
             <p>LIVROTERIA</p>
         </div>
         <div class="campo">
-            <input type="text" placeholder="Buscar por titulo, autor, editora...">
-            <div class="button"> <img src="../../../../assets/search.svg" alt=""></div>
+            <input type="text" placeholder="Buscar por titulo, autor, editora..." #input>
+            <div class="button" (click)="filtrar(input.value)"> <img src="../../../../assets/search.svg" alt=""></div>
         </div>
     </div>
 

@@ -18,10 +18,13 @@ export class LivroDetalheComponent {
   }
 
   deletarLivro(){
-    console.log(this.livroDetalhe?.id)
     this.livroService.deletarLivro(this.livroDetalhe?.id).subscribe(
       {
-        next: (res) => {},
+        next: (res) => {
+          this.livroService.livros$.next(
+            this.livroService.livros$.value.filter(l => l.id !== this.livroDetalhe?.id)
+          )
+        },
         error: err => alert("Erro ao deletar o Livro!")
       }
     )

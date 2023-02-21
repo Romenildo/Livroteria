@@ -12,6 +12,8 @@
                 display: flex;
                 margin-top: 8px;
                 border: 1px gray solid;
+                max-height: 90px;
+                overflow-y: scroll;
                 img{
                     width: 55px;
                     height: 80px;
@@ -31,5 +33,4 @@
             }
         }
     }
-
 }

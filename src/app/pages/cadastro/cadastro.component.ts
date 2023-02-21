@@ -24,7 +24,7 @@ export class CadastroComponent  implements OnInit {
     
     this.livroService.cadastrarLivro(livro).subscribe(
       {
-        next: res => console.log(res),
+        next: res => {console.log(res) ;form.reset},
         error: err => alert("Erro na Requisicao com o servidor!")
       }
     )
