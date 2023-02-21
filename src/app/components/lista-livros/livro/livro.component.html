@@ -1,15 +1,20 @@
 
-<div class="box-livro">
-    <img [src]="livro?.imagem" alt="">
+<div class="box-livro" >
+    <app-livro-detalhe *ngIf="mostrarDetalhe" (onClose)="mostrarDetalhes()" [livroDetalhe]="livro"></app-livro-detalhe>
+
+    <img [src]="livro?.imagem" alt="" (click)="mostrarDetalhes()">
     <div class="descricao">
         <div class="titulo">
             <span>{{livro?.titulo}} </span>
-            <span>({{livro?.subtitulo}})</span>
+            <span>({{livro?.subTitulo}})</span>
             <span class="edicao"> ({{livro?.edicao}}ª edicao)</span>
         </div>
         <div class="detalhes">
-            <p><span class="destaque">{{livro?.autores}}</span> por </p>
-            <p> <span class="destaque">{{livro?.editora}}</span></p>
+            <span *ngFor="let autor of livro?.autores">
+                <span class="destaque">{{autor.nome}}(Autor)</span>, 
+            </span> <span> por </span>
+            <p> <span class="destaque" >{{livro?.editora}} (Editora)</span></p>
         </div>
     </div>
 </div>
+

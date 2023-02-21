@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Output, Input, EventEmitter  } from '@angular/core';
+import { Livro } from 'src/app/model/livro.model';
+import { LivroService } from 'src/app/services/livro.service';
 
 @Component({
   selector: 'app-livro-detalhe',
@@ -6,5 +8,22 @@ import { Component } from '@angular/core';
   styleUrls: ['./livro-detalhe.component.scss']
 })
 export class LivroDetalheComponent {
+  @Input() livroDetalhe?:Livro;
+  @Output('onClose') fecharEmitter: EventEmitter<string> = new EventEmitter();
 
+  constructor(private livroService:LivroService){}
+
+  fecharDetalhe(){
+    this.fecharEmitter.emit('close')
+  }
+
+  deletarLivro(){
+    console.log(this.livroDetalhe?.id)
+    this.livroService.deletarLivro(this.livroDetalhe?.id).subscribe(
+      {
+        next: (res) => {},
+        error: err => alert("Erro ao deletar o Livro!")
+      }
+    )
+  }
 }

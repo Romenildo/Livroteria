@@ -20,7 +20,7 @@ export class CadastroComponent  implements OnInit {
   cadastrarLivro(form: NgForm, imagem:string){
     const livro = form.value;
     imagem != ''?livro.imagem = imagem:livro.imagem = "https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/1665px-No-Image-Placeholder.svg.png";
-    livro.autores = [{nome: livro.autor}]
+    livro.autores = this.getAutores(livro.autor)
     
     this.livroService.cadastrarLivro(livro).subscribe(
       {
@@ -29,8 +29,16 @@ export class CadastroComponent  implements OnInit {
       }
     )
   }
-
+  
   atualizarImagem(imagem:string){
     this.imagemView = imagem
+  }
+
+  getAutores(livroAutores:string){
+    const autores:{ nome:string }[]= [];
+    livroAutores.split(';').forEach((autor:string) => {
+      autores.push({nome: autor})
+    });
+    return autores;
   }
 }

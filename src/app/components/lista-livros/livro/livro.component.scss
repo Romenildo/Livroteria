@@ -2,14 +2,17 @@
     border: 1x solid gray;
     padding: 10px;
     box-shadow: 0 0 4px gray;
-
+    max-height: 320px;
+    overflow-y: scroll;
     &:hover{
-        opacity: 0.8;
+        cursor: pointer;
+        box-shadow: 0 0 6px var(--primaria);
     }
     img{
         height: 230px;
         width: 160px;
         padding: 0px 24px;
+        
     }
 
     .titulo{
@@ -29,4 +32,8 @@
             cursor: pointer;
         }
     }
+}
+
+::-webkit-scrollbar {
+    width: 1px;
 }

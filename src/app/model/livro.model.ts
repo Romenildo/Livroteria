@@ -1,11 +1,11 @@
 import { Autor} from 'src/app/model/autor.model';
 
 export interface Livro {
-    id?: string;
+    id: string;
     titulo:string;
-    subtitulo?:string;
+    subTitulo?:string;
     resumo?:string;
-    quantidadePaginas:number;
+    quantPaginas:number;
     dataPublicacao:string;
     editora:string;
     edicao?:number;

@@ -67,7 +67,7 @@
                 <input 
                  type="text" 
                  id="autor" 
-                 placeholder="Autor*"
+                 placeholder="Autor;Autor2;Autor3...*"
                  name="autor"
                  ngModel
                  required
@@ -83,7 +83,7 @@
                  maxlength="150"
                  >
                 <div class="form-inferior">
-                    <p class="alerta" *ngIf="f.value.quantPaginas > 10000">*Valor entre 0 e 10000</p>
+                    <p class="alerta" *ngIf="f.value.quantPaginas > 10000 || f.value.quantPaginas < 0">*Valor entre 0 e 10000</p>
                     <input 
                      type="number" 
                      id="qtPag" 

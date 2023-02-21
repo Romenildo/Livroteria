@@ -9,4 +9,9 @@ import { Livro } from 'src/app/model/livro.model';
 export class LivroComponent {
 
   @Input() livro?:Livro;
+  mostrarDetalhe:boolean = false;
+
+  mostrarDetalhes(){
+    this.mostrarDetalhe = !this.mostrarDetalhe;
+  }
 }

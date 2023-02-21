@@ -19,7 +19,7 @@ export class LivroService {
     return this.http.put(`${environment.API_URL}/Livro/${id}`, livro);
   }
 
-  deletarLivro(id: string){
+  deletarLivro(id?: string){
     return this.http.delete(`${environment.API_URL}/Livro/${id}`);
   }
 
