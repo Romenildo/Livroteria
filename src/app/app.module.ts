@@ -5,7 +5,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/template/header/header.component';
 import { NavBarComponent } from './components/template/nav-bar/nav-bar.component';
-import { InicioComponent } from './pages/inicio/inicio.component';
 import { ListarComponent } from './pages/listar/listar.component';
 import { CadastroComponent } from './pages/cadastro/cadastro.component';
 import { FooterComponent } from './components/template/footer/footer.component';
@@ -22,7 +21,6 @@ import { HttpClientModule } from '@angular/common/http';
     AppComponent,
     HeaderComponent,
     NavBarComponent,
-    InicioComponent,
     ListarComponent,
     CadastroComponent,
     FooterComponent,

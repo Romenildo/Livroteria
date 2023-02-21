@@ -11,7 +11,9 @@
         </div>
         <div class="detalhes">
             <div class="titulo">
-                <span> {{livroDetalhe?.titulo}}</span> <span> {{livroDetalhe?.subTitulo}}</span> <span>({{ livroDetalhe?.edicao }}ª edicao)</span>
+                <span> {{livroDetalhe?.titulo}}</span>
+                <span *ngIf="livroDetalhe.subTitulo.length > 0"> ({{livroDetalhe?.subTitulo}})</span>
+                 <span *ngIf="livroDetalhe.edicao > 0">({{ livroDetalhe?.edicao }}ª edicao)</span>
             </div>
             <div class="publicacao">
                 <span>Autor: </span>

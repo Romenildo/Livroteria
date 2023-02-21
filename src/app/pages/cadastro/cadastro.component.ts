@@ -19,13 +19,34 @@ export class CadastroComponent  implements OnInit {
   
   cadastrarLivro(form: NgForm, imagem:string){
     const livro = form.value;
-    imagem != ''?livro.imagem = imagem:livro.imagem = "https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/1665px-No-Image-Placeholder.svg.png";
+
+    if(imagem != '' || imagem.indexOf("http") != -1){
+      livro.imagem = "https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/1665px-No-Image-Placeholder.svg.png";
+    }else{
+      livro.imagem = imagem
+    }
+    if(livro.edicao == ''){
+      livro.edicao = 0
+    }
     livro.autores = this.getAutores(livro.autor)
     
     this.livroService.cadastrarLivro(livro).subscribe(
       {
-        next: res => {console.log(res) ;form.reset},
-        error: err => alert("Erro na Requisicao com o servidor!")
+        next: res => {
+          console.log(res)
+          alert("Cadastrado com Sucesso!")
+          location.reload()
+        },
+        error: err => {
+          try {
+            const mensagemErro = err.error.split("\r\n")[0].split(":")[1]
+            alert("Erro: "+ mensagemErro + " !")
+          } catch (error) {
+            alert("Erro no Servidor!")
+            console.log(error)
+          }
+          
+        }
       }
     )
   }

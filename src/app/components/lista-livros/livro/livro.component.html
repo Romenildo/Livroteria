@@ -2,12 +2,12 @@
 <div class="box-livro" >
     <app-livro-detalhe *ngIf="mostrarDetalhe" (onClose)="mostrarDetalhes()" [livroDetalhe]="livro"></app-livro-detalhe>
 
-    <img [src]="livro?.imagem" alt="" (click)="mostrarDetalhes()">
+    <img [src]="livro.imagem" alt="" (click)="mostrarDetalhes()">
     <div class="descricao">
         <div class="titulo">
-            <span>{{livro?.titulo}} </span>
-            <span>({{livro?.subTitulo}})</span>
-            <span class="edicao"> ({{livro?.edicao}}ª edicao)</span>
+            <span>{{livro.titulo}} </span>
+            <span *ngIf="livro.subTitulo.length > 0">({{livro.subTitulo}})</span>
+            <span class="edicao" *ngIf="livro.edicao > 0"> ({{livro.edicao}}ª edicao)</span>
         </div>
         <div class="detalhes">
             <span *ngFor="let autor of livro?.autores">

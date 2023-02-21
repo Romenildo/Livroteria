@@ -8,7 +8,7 @@ export interface Livro {
     quantPaginas:number;
     dataPublicacao:string;
     editora:string;
-    edicao?:number;
+    edicao:number;
     imagem:string;
     autores: Autor[];
   }

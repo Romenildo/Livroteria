@@ -8,7 +8,7 @@ import { Livro } from 'src/app/model/livro.model';
 })
 export class LivroComponent {
 
-  @Input() livro?:Livro;
+  @Input() livro:any;
   mostrarDetalhe:boolean = false;
 
   mostrarDetalhes(){

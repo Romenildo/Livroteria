@@ -33,16 +33,6 @@
             }
 
             .input-imagem{
-                input#file-img{
-                    margin-top: 10px;
-                    width: 250px;
-                    color: var(--primaria);
-                    &::-webkit-file-upload-button{
-                        background-color: var(--primaria);
-                        border: none;
-                        height: 1.9em;
-                    }
-                }
                 input#file-string{
                     margin-top: 10px;
                     color: var(--primaria);

@@ -7,8 +7,8 @@
             <div class="item" *ngFor="let livro of livrosRecentes">
                 <img [src]="livro.imagem" alt="">
                 <div class="info">
-                    <p>{{livro.titulo}}({{livro.edicao}}ªEdicao)</p>
-                    <span class="autor" *ngFor="let autor of livro.autores">autor,  </span>
+                    <p>{{livro.titulo}}<span *ngIf="livro.edicao > 0">  ({{livro.edicao}}ªEdicao) </span></p>
+                    <span class="autor" *ngFor="let autor of livro.autores">{{autor.nome}},  </span>
                     <span class="autor">por</span>
                     <p class="autor">{{livro.editora}}</p>
                 </div>

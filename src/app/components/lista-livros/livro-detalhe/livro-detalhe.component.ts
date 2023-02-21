@@ -8,7 +8,7 @@ import { LivroService } from 'src/app/services/livro.service';
   styleUrls: ['./livro-detalhe.component.scss']
 })
 export class LivroDetalheComponent {
-  @Input() livroDetalhe?:Livro;
+  @Input() livroDetalhe?:any;
   @Output('onClose') fecharEmitter: EventEmitter<string> = new EventEmitter();
 
   constructor(private livroService:LivroService){}

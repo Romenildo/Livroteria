@@ -10,18 +10,13 @@
             <img [src]="imagemView" alt="Vazio ou Imagem Inválida">
             
             <div class="input-imagem">
-                <div class="item">
-                    <input type="file" name="" id="file-img">
-                </div>
-                <div class="item">
-                    <input 
-                     type="text" 
-                     id="file-string" 
-                     placeholder="Url Imagem" 
-                     #imagem
-                     (mouseleave)="atualizarImagem(imagem.value)"
-                     >
-                </div>
+                <input 
+                 type="text" 
+                 id="file-string" 
+                 placeholder="Url Imagem" 
+                 #imagem
+                 (mouseleave)="atualizarImagem(imagem.value)"
+                 >
             </div>
                         
         </div>
