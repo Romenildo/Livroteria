@@ -16,6 +16,7 @@ import { FiltroComponent } from './components/filtro/filtro.component';
 import { ListaRecentesComponent } from './components/lista-recentes/lista-recentes.component';
 import { FormsModule } from '@angular/forms';
 
+import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,6 +36,7 @@ import { FormsModule } from '@angular/forms';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

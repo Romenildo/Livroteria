@@ -10,7 +10,7 @@
         .aviso{
             font-size: 0.7em;
             padding-left: 350px;
-            color: rgba(255, 5, 5, 0.644);
+            color: var(--error);
         }
     }
     .box-cadastro{
@@ -19,6 +19,11 @@
         align-items: center;
         justify-content: center;
         margin-top: 30px;
+        .alerta{
+            position: absolute;
+            font-size: 0.7em;
+            color: var(--error);
+        }
         .box-imagem{
             border: 1px gray solid;
             padding: 10px 20px 10px 20px;

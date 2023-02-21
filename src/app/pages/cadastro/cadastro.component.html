@@ -2,7 +2,7 @@
     <div class="linha">
         <h1>Cadastro de livros</h1>
         <p>Bem vindo ao cadastro para o gerenciamento dos livros na <strong>Livroteria</strong>. </p>
-        <p class="aviso"> Os campos com (*) são obrigatórios</p>
+        <p class="aviso" *ngIf="!f.valid"> Os campos com (*) são obrigatórios</p>
     </div>
 
     <div class="box-cadastro">
@@ -49,6 +49,7 @@
                          >
                     </div>
                     <div class="edicao">
+                        <p class="alerta" *ngIf="f.value.edicao > 20">*Valor entre 0 e 20</p>
                         <input 
                          type="number" 
                          id="edicao" 
@@ -82,11 +83,12 @@
                  maxlength="150"
                  >
                 <div class="form-inferior">
+                    <p class="alerta" *ngIf="f.value.quantPaginas > 10000">*Valor entre 0 e 10000</p>
                     <input 
                      type="number" 
                      id="qtPag" 
                      placeholder="Paginas*"
-                     name ="quantidadePaginas"
+                     name ="quantPaginas"
                      ngModel
                      required
                      max="10000"
@@ -96,9 +98,8 @@
                         <span>Data publicacao*: </span>
                         <input 
                          type="date" 
-                         name="data" 
                          id="data"
-                         name = "data"
+                         name = "dataPublicacao"
                          ngModel
                          required    
                          >

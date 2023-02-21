@@ -1,5 +1,7 @@
+import { Autor} from 'src/app/model/autor.model';
+
 export interface Livro {
-    id?: number;
+    id?: string;
     titulo:string;
     subtitulo?:string;
     resumo?:string;
@@ -7,6 +9,6 @@ export interface Livro {
     dataPublicacao:string;
     editora:string;
     edicao?:number;
-    autor:string;
     imagem:string;
+    autores: Autor[];
   }
