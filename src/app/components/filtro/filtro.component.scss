@@ -8,11 +8,10 @@
         .filtros{
             margin: 12px 10px;
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: 1fr;
             gap: 14px;
-            
-            
             .item{
+                display: flex;
                 background-color: #1c1c29;
                 border-radius: 5px;
                 padding: 10px;

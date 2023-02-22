@@ -1,7 +1,7 @@
 
 .box-header{
     height: 100px;
-
+    min-width: 720px;
     .header{
         display: flex;
         padding-left: 15%;
@@ -62,10 +62,24 @@
             }
         }
         
+        
+        
+    }
+
+    @media (max-width: 900px) {
+        height: 200px;
+        .header{
+            display: block;
+            text-align: center;
+        }
+        
     }
 
     .nav{
         background-color: var(--primaria);
         height: 40%;
+        @media (max-width: 900px) {
+            height: 20%;
+        }
     }
 }

@@ -49,10 +49,13 @@
 
         .detalhes{
             margin-top: -10px;
+            min-width: 120px;
             .titulo{
                 padding: 5px;
                 padding-top: 20px;
                 font-size: 18px;
+                min-width: 120px;
+                max-width: 200px;
             }
 
             .publicacao{
@@ -60,6 +63,7 @@
                 font-size: 0.8em;
                 color: gray;
                 line-height: 20px;
+                min-width: 120px;
             }
             .resumo{
                 border: 1px gray solid;
@@ -67,10 +71,17 @@
                 font-size: 0.9em;
                 color: rgb(78, 78, 78);
                 width: 93%;
+                min-width: 120px;
                 height: 90px;
                 padding: 5px;
                 margin-top: -13px;
             }
         }
+    }
+
+    @media (max-width: 780px) {
+        position: fixed;
+        top: 20%;
+        left:5%;
     }
 }

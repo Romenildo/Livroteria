@@ -1,7 +1,15 @@
 
 
 .lista-livros{
+    min-width: 560px;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     gap: 10px;
+
+    @media (max-width: 1000px) {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+    @media (max-width: 720px) {
+        grid-template-columns: 1fr 1fr;
+    }
 }
