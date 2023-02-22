@@ -13,9 +13,10 @@ import { LivroComponent } from './components/lista-livros/livro/livro.component'
 import { LivroDetalheComponent } from './components/lista-livros/livro-detalhe/livro-detalhe.component';
 import { FiltroComponent } from './components/filtro/filtro.component';
 import { ListaRecentesComponent } from './components/lista-recentes/lista-recentes.component';
-import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 import { HttpClientModule } from '@angular/common/http';
+import { EditarComponent } from './editar/editar.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,12 +29,14 @@ import { HttpClientModule } from '@angular/common/http';
     LivroComponent,
     LivroDetalheComponent,
     FiltroComponent,
-    ListaRecentesComponent
+    ListaRecentesComponent,
+    EditarComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpClientModule
   ],
   providers: [],

@@ -19,7 +19,7 @@ export class CadastroComponent  implements OnInit {
   
   cadastrarLivro(form: NgForm, imagem:string){
     const livro = form.value;
-
+    
     if(imagem != '' || imagem.indexOf("http") != -1){
       livro.imagem = "https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/1665px-No-Image-Placeholder.svg.png";
     }else{
@@ -51,7 +51,7 @@ export class CadastroComponent  implements OnInit {
     )
   }
   
-  atualizarImagem(imagem:string){
+  atualizarImagemView(imagem:string){
     this.imagemView = imagem
   }
 

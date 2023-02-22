@@ -10,8 +10,13 @@ export class LivroComponent {
 
   @Input() livro:any;
   mostrarDetalhe:boolean = false;
+  mostrarEdit:boolean = false;
 
-  mostrarDetalhes(){
+  mostrarTelaDetalhes(){
     this.mostrarDetalhe = !this.mostrarDetalhe;
+  }
+  mostrarTelaEdit(){
+    console.log("mostrando "+ this.mostrarEdit)
+    this.mostrarEdit = !this.mostrarEdit;
   }
 }

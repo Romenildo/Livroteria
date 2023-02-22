@@ -53,4 +53,49 @@ export class LivroService {
     return false;
   }
 
+
+  atualizarFiltroBuscaAvancada(filtro:any){
+    this.getLivros().subscribe((res:any) => {
+        this.livros$.next(res.filter((livro:any)=>{
+          return this.filtragemBuscaAvancada(livro, filtro)
+        }))
+
+        if(filtro.titulo != ""){
+          this.livros$.next(res.filter((livro:any)=>{
+            return livro.titulo.indexOf(filtro.titulo) != -1
+          }))
+        }
+        if(filtro.editora != ""){
+          this.livros$.next(res.filter((livro:any)=>{
+            return livro.editora.indexOf(filtro.editora) != -1
+          }))
+        }
+        if(filtro.autor != ""){
+          this.livros$.next(res.filter((livro:any)=>{
+            return livro.autores.filter((autor:any)=>autor.nome.indexOf(filtro.autor) != -1).length > 0
+          }))
+        }
+        
+    })
+  }
+  filtragemBuscaAvancada(livro:any, filtro:any){
+    console.log("aui")
+    console.log(filtro)
+    console.log(livro)
+    console.log(livro.dataPublicacao.split("-")[0].split("/")[2])
+    const anoPublicacao = livro.dataPublicacao.split("-")[0].split("/")[2]
+    if(
+         //(livro.titulo.indexOf(filtro.titulo) != -1 )
+      //&& (livro.editora.indexOf(filtro.editora) != -1) 
+       (anoPublicacao <= filtro.anoMax && anoPublicacao >= filtro.anoMin ) 
+      && (livro.edicao <= filtro.edicaoMax && livro.edicao >= filtro.edicaoMin ) 
+      && (livro.quantPaginas <= filtro.qtPagMax && livro.quantPaginas >= filtro.qtPagMin ) 
+      //&& (livro.autores.filter((autor:any)=>autor.nome.indexOf(filtro.autor) != -1).length > 0)
+      ){
+        console.log(livro)
+      return true
+    }
+    return false;
+  }
+
 }

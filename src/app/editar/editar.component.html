@@ -1,0 +1,133 @@
+<div id="fundo" (click)="fecharEdit()"></div>
+
+<div class="box" >
+    <div class="linha">
+        <h1>Editar Livro</h1>
+        <p>Edição dos dados do livro Selecionado. </p>
+        <p class="aviso"> Os campos com (*) são obrigatórios</p>
+    </div>
+
+    <div class="box-editar">
+
+        <form [formGroup]="livroForm" (ngSubmit)="atualizarItem()">
+
+            <div class="item">
+                <p *ngIf="!titulo?.valid && (titulo?.dirty || titulo?.touched)" class="alerta">
+                    Campo obrigatório*
+                  </p>
+                <input 
+                    type="text"
+                    id="titulo" 
+                    placeholder="Título*" 
+                    formControlName="titulo"
+                    maxlength="100"
+                    >
+            </div>
+            <div class="item">
+                <p *ngIf="subTitulo?.errors?.['maxlength']" class="alerta">
+                    Limite de 100 caracteres!
+                  </p>
+                <input 
+                    type="text"
+                    id="subTitulo"
+                    placeholder="SubTítulo"
+                    formControlName="subTitulo"
+                    maxlength="100"
+                    >
+            </div>
+            <div class="item">
+                <p *ngIf="edicao?.errors?.['maxlength']" class="alerta">
+                    Valor entre 0 e 20
+                </p>
+                <input 
+                    type="number" 
+                    id="edicao" 
+                    placeholder="Edicao" 
+                    formControlName="edicao"
+                    max="20"
+                    min="0"
+                    >
+            </div>
+            <div class="item">
+                <p *ngIf="!dataPublicacao?.valid && (dataPublicacao?.dirty || dataPublicacao?.touched)" class="alerta">
+                    Campo obrigatório*
+                  </p>
+                <input 
+                    type="date" 
+                    id="dataPublicacao" 
+                    placeholder="Data de publicacao*"
+                     formControlName="dataPublicacao">
+            </div>
+            <div class="item">
+                <p *ngIf="!quantPaginas?.valid && (quantPaginas?.dirty || quantPaginas?.touched)" class="alerta">
+                    Campo obrigatório*
+                </p>
+                <p *ngIf="quantPaginas?.errors?.['maxlength']" class="alerta">
+                    Valor entre 0 e 10000
+                </p>
+                <input 
+                    type="number" 
+                    id="quantPaginas" 
+                    placeholder="Quantidade Páginas*"
+                    formControlName="quantPaginas"
+                    max="10000"
+                    min="0"
+                    >
+            </div>
+            <div class="item">
+                <p *ngIf="!autor?.valid && (autor?.dirty || autor?.touched)" class="alerta">
+                    Campo obrigatório*
+                </p>
+                <input 
+                    type="text" 
+                    id="autor" 
+                    placeholder="Autor;Autor2;Autor3...*" 
+                    formControlName="autor">
+            </div>
+            <div class="item">
+                <p *ngIf="!editora?.valid && (editora?.dirty || editora?.touched)" class="alerta">
+                    Campo obrigatório*
+                </p>
+                <input 
+                    type="text" 
+                    id="editora" 
+                    placeholder="Editora*" 
+                    formControlName="editora"
+                    maxlength="150"
+                    >
+            </div>
+            <textarea
+                name="Text1" 
+                cols="60" rows="5" 
+                placeholder="Resumo"
+                formControlName="resumo"
+                maxlength="500">
+            ></textarea>
+
+            <div class="box-imagem">
+                <img [src]="imagemView" alt="Vazio ou Imagem Inválida">
+    
+                <div class="input-imagem">
+                    <input 
+                    type="text" 
+                    id="file-string" 
+                    formControlName="imagem"
+                    placeholder="Url Imagem"
+                    #imagem
+                    (mouseleave)="atualizarImagemView(imagem.value)"
+                    >
+                </div>
+            </div>
+
+            <div class="button">
+                <button type="submit">Atualizar</button>
+            </div>
+        </form>
+
+        
+        
+    </div>
+
+
+
+</div>

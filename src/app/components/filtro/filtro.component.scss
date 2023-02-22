@@ -1,20 +1,23 @@
 .box{
     background-color: #161621;
     padding: 10px;
-
+    min-width: 300px;
+    
     .box-filtro{
         padding: 5px;
         
         .filtros{
-            margin: 12px 10px;
+            margin: 8px 10px;
             display: grid;
             grid-template-columns: 1fr;
-            gap: 14px;
+            gap: 9px;
             .item{
                 display: flex;
                 background-color: #1c1c29;
                 border-radius: 5px;
-                padding: 10px;
+                padding: 7px;
+                align-items: center;
+                
 
                 &:hover{
                     cursor: pointer;
@@ -22,6 +25,25 @@
                 }
                 .bold{
                     font-weight: bold;
+                    padding-left: 10px;
+                    color: var(--primaria);
+                }
+                input{
+                    height: 20px;
+                    width: 20%;
+                    margin: 0px 10px;
+                    color: var(--primaria);
+                    &::placeholder{
+                        color: var(--primaria);
+                    }
+                    &#editora{
+                        margin-left: 5px;
+                        width: 80%;
+                    }
+                    &#autor{
+                        margin-left: 5px;
+                        width: 80%;
+                    }
                 }
             }
 
@@ -35,6 +57,10 @@
             padding-left: 10px;
             border: 1px solid;
             border-radius: 4px 0px 0px 4px;
+            color: var(--primaria);
+            &::placeholder{
+                color: var(--primaria);
+            }
             &:focus{
                 box-shadow: 0 0 4px var(--primaria);
             }

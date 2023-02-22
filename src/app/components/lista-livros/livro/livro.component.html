@@ -1,8 +1,9 @@
 
 <div class="box-livro" >
-    <app-livro-detalhe *ngIf="mostrarDetalhe" (onClose)="mostrarDetalhes()" [livroDetalhe]="livro"></app-livro-detalhe>
+    <app-livro-detalhe *ngIf="mostrarDetalhe" (onClose)="mostrarTelaDetalhes()" (onEdit)="mostrarTelaEdit()" [livroDetalhe]="livro"></app-livro-detalhe>
+    <app-editar *ngIf="mostrarEdit"  [livroEdit]="livro" (onClose)="mostrarTelaEdit()"></app-editar>
 
-    <img [src]="livro.imagem" alt="" (click)="mostrarDetalhes()">
+    <img [src]="livro.imagem" alt="" (click)="mostrarTelaDetalhes()">
     <div class="descricao">
         <div class="titulo">
             <span>{{livro.titulo}} </span>
