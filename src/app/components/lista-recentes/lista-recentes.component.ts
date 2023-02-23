@@ -24,7 +24,6 @@ export class ListaRecentesComponent {
           this.livrosRecentes = this.livrosRecentes.slice(-5).reverse();
         }
       },
-      error: (err) => alert('Erro na Requisicao com o servidor em Livros Recente!'),
     });
   }
 

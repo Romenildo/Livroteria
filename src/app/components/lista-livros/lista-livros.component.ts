@@ -23,7 +23,6 @@ export class ListaLivrosComponent implements OnInit {
 
     this.apiService.getLivros().subscribe({
       next: (res:any)=> this.livroService.livros$.next(res),
-      error: (err) => alert('Erro na Requisicao com o servidor em Livros Principal!'),
     });
   }
 }
