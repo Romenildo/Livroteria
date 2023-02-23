@@ -1,7 +1,7 @@
 
 
-<div class="box-header">
-    <div class="header">
+<div class="container-header">
+    <header>
         <div class="logo" routerLink="/livros">
             <img src="../../../../assets/logo.png" alt="">
             <p>LIVROTERIA</p>
@@ -10,7 +10,7 @@
             <input type="text" placeholder="Buscar por titulo, autor, editora..." #input>
             <div class="button" (click)="filtrar(input.value)"> <img src="../../../../assets/search.svg" alt=""></div>
         </div>
-    </div>
+    </header>
 
     <div class="nav">
         <app-nav-bar ></app-nav-bar>

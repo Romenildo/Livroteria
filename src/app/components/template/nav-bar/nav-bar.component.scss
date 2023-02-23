@@ -1,27 +1,27 @@
-
-.nav-box{
+.nav-container {
     display: flex;
     list-style: none;
-    margin-left: 40px; 
+    margin-left: 20px;
     text-decoration: none;
-    li{
-        padding: 9.7px 15px;
-        a{
+
+    li {
+        padding: 9.7px 20px;
+
+        a {
             padding: 20px;
             text-decoration: none;
             color: #fff;
         }
 
-
-        &:hover{
+        &:hover {
             border: 1px solid #000;
             opacity: 0.8;
         }
     }
-    
+
 }
 
-.active{
+.active {
     border: 1px solid #000;
     text-decoration: underline;
 }

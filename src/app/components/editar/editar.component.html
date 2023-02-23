@@ -1,4 +1,4 @@
-<div id="fundo" (click)="fecharEdit()"></div>
+<div id="fundo" (click)="fecharTelaEdit()"></div>
 
 <div class="box" >
     <div class="linha">
@@ -36,7 +36,7 @@
                     >
             </div>
             <div class="item">
-                <p *ngIf="edicao?.errors?.['maxlength']" class="alerta">
+                <p *ngIf="edicao?.errors?.['max']" class="alerta">
                     Valor entre 0 e 20
                 </p>
                 <input 
@@ -62,7 +62,7 @@
                 <p *ngIf="!quantPaginas?.valid && (quantPaginas?.dirty || quantPaginas?.touched)" class="alerta">
                     Campo obrigatório*
                 </p>
-                <p *ngIf="quantPaginas?.errors?.['maxlength']" class="alerta">
+                <p *ngIf="quantPaginas?.errors?.['max']" class="alerta">
                     Valor entre 0 e 10000
                 </p>
                 <input 

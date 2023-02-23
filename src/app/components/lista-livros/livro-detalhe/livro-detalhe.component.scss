@@ -1,8 +1,6 @@
-
-
-.box{
+.container {
     position: absolute;
-    width: 520px;
+    max-width: 600px;
     height: 300px;
     max-height: 320px;
     background-color: #161621;
@@ -11,61 +9,69 @@
     max-height: 320px;
     overflow-y: scroll;
 
-    .acoes{
+    .acoes {
         display: flex;
         gap: 20px;
         justify-content: flex-end;
         padding-right: 20px;
         margin-top: 5px;
-        .button{
+
+        .button {
             background-color: var(--secundaria);
             width: 30px;
-            height: 20px; 
+            height: 20px;
             border-radius: 4px;
             border: 1px solid;
-            &:hover{
+
+            &:hover {
                 border: 1px solid rgb(72, 72, 72);
                 box-shadow: 0 0 6px var(--primaria);
                 cursor: pointer;
                 opacity: 0.8;
             }
-            img{
+
+            img {
                 margin-left: 5px;
             }
         }
     }
-    .conteudo{
+
+    .conteudo {
         display: flex;
-        .box-imagem{
+
+        .container-imagem {
             padding: 10px;
             margin: 10px;
             border: 1px solid gray;
             border-radius: 4px;
-            img{
+            max-height: 250px;
+
+            img {
                 width: 150px;
                 height: 230px;
             }
         }
 
-        .detalhes{
-            margin-top: -10px;
+        .detalhes {
+            margin-top: -7px;
             min-width: 120px;
-            .titulo{
+
+            .titulo {
                 padding: 5px;
-                padding-top: 20px;
                 font-size: 18px;
                 min-width: 120px;
-                max-width: 200px;
+                max-width: 300px;
             }
 
-            .publicacao{
+            .publicacao {
                 padding: 15px;
                 font-size: 0.8em;
                 color: gray;
                 line-height: 20px;
                 min-width: 120px;
             }
-            .resumo{
+
+            .resumo {
                 border: 1px gray solid;
                 border-radius: 4px;
                 font-size: 0.9em;
@@ -75,6 +81,8 @@
                 height: 90px;
                 padding: 5px;
                 margin-top: -13px;
+                max-height: 85px;
+                overflow-y: scroll;
             }
         }
     }
@@ -82,6 +90,6 @@
     @media (max-width: 780px) {
         position: fixed;
         top: 20%;
-        left:5%;
+        left: 5%;
     }
 }

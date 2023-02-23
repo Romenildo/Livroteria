@@ -1,12 +1,12 @@
 
 
-<div class="box" (mouseleave)="fecharDetalhe()">
+<div class="container" (mouseleave)="fecharDetalhe()">
     <div class="acoes">
         <div class="button" (click)="abrirEdit()"> <img src="../../../../assets/edit.svg" alt=""></div>
         <div class="button" (click)="deletarLivro()"> <img src="../../../../assets/delete.svg" alt=""></div>
     </div>
     <div class="conteudo">
-        <div class="box-imagem">
+        <div class="container-imagem">
             <img [src]="livroDetalhe?.imagem" alt="">
         </div>
         <div class="detalhes">

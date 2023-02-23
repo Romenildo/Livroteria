@@ -1,18 +1,17 @@
-<div class="box">
-    <div class="box-lista">
-        <h2>Ultimos adicionados</h2>
-        
+<div class="container">
+    <div class="container-lista">
+        <h2>Últimos adicionados</h2>
         <div class="lista">
-
             <div class="item" *ngFor="let livro of livrosRecentes">
-                <img [src]="livro.imagem" alt="">
+                <img [src]="livro.imagem" alt="Error na Imagem">
                 <div class="info">
-                    <p>{{livro.titulo}}<span *ngIf="livro.edicao > 0">  ({{livro.edicao}}ªEdicao) </span></p>
-                    <span class="autor" *ngFor="let autor of livro.autores">{{autor.nome}},  </span>
+                    <p> {{livro.titulo}}
+                        <span *ngIf="livro.edicao > 0"> ({{livro.edicao}}ªEdicao) </span>
+                    </p>
+                    <span class="autor" *ngFor="let autor of livro.autores">{{autor.nome}}, </span>
                     <span class="autor">por</span>
                     <p class="autor">{{livro.editora}}</p>
                 </div>
             </div>
-            
         </div>
-</div>
+    </div>

@@ -1,73 +1,81 @@
-.box{
-    background-color: #161621;
+.container {
+    background-color: var(--backgroundDiv);
     padding: 10px;
     min-width: 300px;
-    
-    .box-filtro{
+
+    .container-filtro {
         padding: 5px;
-        
-        .filtros{
+
+        .filtros {
             margin: 8px 10px;
             display: grid;
             grid-template-columns: 1fr;
             gap: 9px;
-            .item{
+
+            .item {
                 display: flex;
                 background-color: #1c1c29;
                 border-radius: 5px;
                 padding: 7px;
                 align-items: center;
-                
 
-                &:hover{
+
+                &:hover {
                     cursor: pointer;
                     opacity: 0.8;
                 }
-                .bold{
+
+                .bold {
                     font-weight: bold;
                     padding-left: 10px;
                     color: var(--primaria);
                 }
-                input{
+
+                input {
                     height: 20px;
                     width: 20%;
                     margin: 0px 10px;
                     color: var(--primaria);
-                    &::placeholder{
+
+                    &::placeholder {
                         color: var(--primaria);
                     }
-                    &#editora{
+
+                    &#editora {
                         margin-left: 5px;
                         width: 80%;
                     }
-                    &#autor{
+
+                    &#autor {
                         margin-left: 5px;
                         width: 80%;
                     }
                 }
             }
-
         }
-        input{
-            margin-top: 10px;
-            background-color: var(--secundaria);
-            width: 100%;
+
+        input {
+            margin: 10px 10px;
+            background-color: var(--background);
+            width: 93%;
             height: 35px;
             font-size: 14px;
             padding-left: 10px;
             border: 1px solid;
             border-radius: 4px 0px 0px 4px;
             color: var(--primaria);
-            &::placeholder{
+
+            &::placeholder {
                 color: var(--primaria);
             }
-            &:focus{
+
+            &:focus {
                 box-shadow: 0 0 4px var(--primaria);
             }
         }
     }
 
-    button{
+    button {
         display: flex;
         background-color: var(--primaria);
         width: 100%;
@@ -80,11 +88,12 @@
         justify-content: center;
         align-items: center;
 
-        &:hover{
+        &:hover {
             cursor: pointer;
             opacity: 0.9;
         }
-        img{
+
+        img {
             margin: 0px 5px 2px 0px;
         }
     }

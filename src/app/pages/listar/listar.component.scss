@@ -1,40 +1,38 @@
-.main{
-
+.container-principal {
     padding-bottom: 50px;
-    .linha{
 
+    .linha {
         border: 1px solid gray;
         padding: 15px;
-        margin: 3px 3px;
+        margin: 9px 3px 3px 3px;
         box-shadow: 0 0 5px gray;
     }
 
-    h2{
+    h2 {
         padding: 12px 40px;
     }
 
-    .box{
+    .container {
         display: flex;
         padding-left: 10%;
         gap: 40px;
-        
-        .box-lista{
+
+        section {
             width: 70%;
             height: 100%;
         }
 
-        aside{
+        aside {
             height: 100%;
             width: 25%;
         }
+
         @media (max-width: 1280px) {
             display: block;
 
-            aside{
+            aside {
                 width: 100%;
             }
         }
     }
-
-
 }

@@ -1,37 +1,44 @@
-.box{
-    background-color: #161621;
+.container {
+    background-color: var(--backgroundDiv);
     padding: 10px;
     margin-top: 30px;
-    min-width: 560px;
 
-    .box-lista{
+    .container-lista {
         padding: 10px;
 
-        .lista{
+        .lista {
             padding-top: 10px;
-            .item{
+
+            .item {
                 display: flex;
                 margin-top: 8px;
                 border: 1px gray solid;
                 max-height: 90px;
                 overflow-y: scroll;
-                img{
+
+                img {
                     width: 55px;
                     height: 80px;
                     padding: 5px;
                 }
-                .info{
+
+                .info {
                     padding: 8px 5px 5px 10px;
-                    font-size: 0.9em;
-                    .autor{
+                    font-size: 0.85em;
+
+                    .autor {
                         color: gray;
                         font-size: 0.7em;
                         padding-top: 3px;
-                        
+
                     }
                 }
 
             }
         }
+    }
+
+    @media (max-width: 600px) {
+        min-width: 560px;
     }
 }

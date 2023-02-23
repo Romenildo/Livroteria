@@ -1,13 +1,13 @@
-<div class="box">
+<div class="container">
     <div class="linha">
         <h1>Cadastro de livros</h1>
         <p>Bem vindo ao cadastro para o gerenciamento dos livros na <strong>Livroteria</strong>. </p>
         <p class="aviso" *ngIf="!f.valid"> Os campos com (*) são obrigatórios</p>
     </div>
 
-    <div class="box-cadastro">
-        <div class="box-imagem">
-            <img [src]="imagemView" alt="Vazio ou Imagem Inválida">
+    <div class="container-cadastro">
+        <div class="container-imagem">
+            <img [src]="imagemPreview" alt="Vazio ou Imagem Inválida">
             
             <div class="input-imagem">
                 <input 
@@ -15,107 +15,103 @@
                  id="file-string" 
                  placeholder="Url Imagem" 
                  #imagem
-                 (mouseleave)="atualizarImagemView(imagem.value)"
+                 (mouseleave)="atualizarImagemPreview(imagem.value)"
                  >
-            </div>
-                        
+            </div>          
         </div>
-    
-            <form (ngSubmit)="cadastrarLivro(f, imagem.value)" #f="ngForm" class="box-formulario">
+
+        <form (ngSubmit)="cadastrarLivro(f)" #f="ngForm" class="container-formulario">
                 
-                <div class="form-superior">
-                    <div class="titulos">
-                        <input 
-                         type="text" 
-                         id="titulo" 
-                         placeholder="Titulo*" 
-                         name="titulo"
-                         ngModel
-                         required
-                         maxlength="100"
-                         >
-                        <input 
-                         type="text"
-                         id="subTitulo" 
-                         placeholder="Subtitulo"
-                         name="subTitulo"
-                         ngModel
-                         maxlength="100"
-                         >
-                    </div>
-                    <div class="edicao">
-                        <p class="alerta" *ngIf="f.value.edicao > 20">*Valor entre 0 e 20</p>
-                        <input 
-                         type="number" 
-                         id="edicao" 
-                         placeholder="Nº"
-                         name="edicao"
-                         ngModel
-                         max="20"
-                         min="0"
-                         >
-                        <span>ª Edicao</span>
-                    </div>
-                    
-                </div>
-                
-                <input 
-                 type="text" 
-                 id="autor" 
-                 placeholder="Autor;Autor2;Autor3...*"
-                 name="autor"
-                 ngModel
-                 required
-                 maxlength="50"
-                 >
-                <input 
-                 type="text" 
-                 id="editora" 
-                 placeholder="Editora*"
-                 name="editora"
-                 ngModel
-                 required
-                 maxlength="150"
-                 >
-                <div class="form-inferior">
-                    <p class="alerta" *ngIf="f.value.quantPaginas > 10000 || f.value.quantPaginas < 0">*Valor entre 0 e 10000</p>
+            <div class="form-superior">
+                <div class="titulos">
                     <input 
-                     type="number" 
-                     id="qtPag" 
-                     placeholder="Paginas*"
-                     name ="quantPaginas"
+                     type="text" 
+                     id="titulo" 
+                     placeholder="Titulo*" 
+                     name="titulo"
                      ngModel
                      required
-                     max="10000"
+                     maxlength="100"
+                     >
+                    <input 
+                     type="text"
+                     id="subTitulo" 
+                     placeholder="Subtitulo"
+                     name="subTitulo"
+                     ngModel
+                     maxlength="100"
+                     >
+                </div>
+                <div class="edicao">
+                    <p class="alerta" *ngIf="f.value.edicao > 20">*Valor entre 0 e 20</p>
+                    <input 
+                     type="number" 
+                     id="edicao" 
+                     placeholder="Nº"
+                     name="edicao"
+                     ngModel
+                     max="20"
                      min="0"
                      >
-                    <div class="data">
-                        <span>Data publicacao*: </span>
-                        <input 
-                         type="date" 
-                         id="data"
-                         name = "dataPublicacao"
-                         ngModel
-                         required   
-                          
-                         >
-                    </div>
-                    
+                    <span>ª Edicao</span>
                 </div>
-                <textarea 
-                  name="Text1" 
-                  cols="60" 
-                  rows="5" 
-                  placeholder="Resumo"
-                  name = "resumo"
-                  ngModel
-                  maxlength="500"
-                  ></textarea>
-                <div class="button">
-                    <button type="submit" [disabled]="!f.valid">Cadastrar</button>
+            </div>
+
+            <input 
+             type="text" 
+             id="autor" 
+             placeholder="Autor;Autor2;Autor3...*"
+             name="autor"
+             ngModel
+             required
+             maxlength="50"
+             >
+            <input 
+             type="text" 
+             id="editora" 
+             placeholder="Editora*"
+             name="editora"
+             ngModel
+             required
+             maxlength="150"
+             >
+            <div class="form-inferior">
+                <p class="alerta" *ngIf="f.value.quantPaginas > 10000 || f.value.quantPaginas < 0">*Valor entre 0 e 10000</p>
+                <input 
+                 type="number" 
+                 id="qtPag" 
+                 placeholder="Paginas*"
+                 name ="quantPaginas"
+                 ngModel
+                 required
+                 max="10000"
+                 min="0"
+                 >
+                <div class="data">
+                    <span>Data publicacao*: </span>
+                    <input 
+                     type="date" 
+                     id="data"
+                     name = "dataPublicacao"
+                     ngModel
+                     required   
+                     >
                 </div>
-                
-            </form>
-        
+            </div>
+
+            <textarea 
+              name="Text1" 
+              cols="60" 
+              rows="5" 
+              placeholder="Resumo"
+              name = "resumo"
+              ngModel
+              maxlength="500"
+              >
+            </textarea>
+               <div class="button">
+                <button type="submit" [disabled]="!f.valid">Cadastrar</button>
+            </div>
+        </form>
     </div>
 </div>

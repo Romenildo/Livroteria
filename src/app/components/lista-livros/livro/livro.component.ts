@@ -1,5 +1,4 @@
 import { Component, Input } from '@angular/core';
-import { Livro } from 'src/app/model/livro.model';
 
 @Component({
   selector: 'app-livro',
@@ -15,8 +14,8 @@ export class LivroComponent {
   mostrarTelaDetalhes(){
     this.mostrarDetalhe = !this.mostrarDetalhe;
   }
+
   mostrarTelaEdit(){
-    console.log("mostrando "+ this.mostrarEdit)
     this.mostrarEdit = !this.mostrarEdit;
   }
 }

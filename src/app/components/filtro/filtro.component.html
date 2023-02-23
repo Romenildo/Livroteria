@@ -1,5 +1,5 @@
-<div class="box">
-    <div class="box-filtro">
+<div class="container">
+    <div class="container-filtro">
         <h2>Filtragem rápida</h2>
         <form class="filtros" (ngSubmit)="filtrar(f)" #f="ngForm">
             
@@ -8,6 +8,7 @@
                 <input 
                 type="text"
                 name="editora" 
+                id="editora" 
                 ngModel
                 maxlength="150"
                 > 
@@ -17,39 +18,66 @@
                 <input 
                 type="text"
                 name="autor"
+                id="editora" 
                 ngModel
                 maxlength="100"> 
             </div>
             <div class="item">
                 <span>Páginas </span>
-                <input type="text" value="0" placeholder="Min" ngModel name="qtPagMin"
+                <input 
+                type="text" 
+                placeholder="Min" 
+                ngModel 
+                name="qtPagMin"
                 max="20"
                 min="0">
                  à 
-                <input type="text" value="10000" placeholder="Max" ngModel name="qtPagMax"
+                <input 
+                type="text" 
+                placeholder="Max" 
+                ngModel 
+                name="qtPagMax"
                 max="20"
                 min="0">
             </div>
             <div class="item">
                 <span>Edicao: </span>
-                <input type="text" value="0" placeholder="Min" ngModel name="edicaoMin"
+                <input 
+                type="text" 
+                placeholder="Min"
+                ngModel
+                name="edicaoMin"
                 max="10000"
                 min="0"> 
                 à 
-                <input type="text" value="20" placeholder="Max" ngModel name="edicaoMax"
+                <input 
+                type="text"
+                placeholder="Max" 
+                ngModel 
+                name="edicaoMax"
                 max="10000"
                 min="0">
             </div>
             <div class="item">
                 <span>Ano: </span>
-                <input type="text" value="1900" placeholder="Min" ngModel name="anoMin"> 
+                <input 
+                type="text" 
+                placeholder="Min" 
+                ngModel 
+                name="anoMin"> 
                 à 
-                <input type="text" value="2022" placeholder="Max" ngModel name="anoMax">
+                <input 
+                type="text" 
+                value="2022" 
+                placeholder="Max" 
+                ngModel
+                name="anoMax">
             </div>
 
-            <input type="text" placeholder="Titulo..." name="titulo" ngModel>
-
-            <button type="submit"  [disabled]="!f.valid"> <img src="../../../../assets/filter.svg" alt=""> <p>Filtrar</p> </button>
+            <input type="text" placeholder="Título..." name="titulo" ngModel>
+            <button type="submit"  [disabled]="!f.valid"> 
+                <img src="../../../../assets/filter.svg" alt=""> <p>Filtrar</p> 
+            </button>
         </form>   
     </div>
     

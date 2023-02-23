@@ -1,40 +1,46 @@
-
-.box{
+.container {
     min-width: 720px;
-    .linha{
+
+    .linha {
         padding: 20px;
         text-align: center;
-        h1{
+
+        h1 {
             color: var(--primaria);
             padding-bottom: 5px;
-        } 
-        .aviso{
+        }
+
+        .aviso {
             font-size: 0.7em;
             padding-left: 350px;
             color: var(--error);
         }
     }
-    .box-cadastro{
+
+    .container-cadastro {
         display: flex;
         gap: 60px;
         align-items: center;
         justify-content: center;
         margin-top: 30px;
-        .alerta{
+
+        .alerta {
             position: absolute;
             font-size: 0.7em;
             color: var(--error);
         }
-        .box-imagem{
+
+        .container-imagem {
             border: 1px gray solid;
             padding: 10px 20px 10px 20px;
-            img{
+
+            img {
                 width: 250px;
                 height: 350px;
             }
 
-            .input-imagem{
-                input#file-string{
+            .input-imagem {
+                input#file-string {
                     margin-top: 10px;
                     color: var(--primaria);
                     width: 240px;
@@ -43,49 +49,58 @@
                     border: none;
                     padding-left: 12px;
                     font-size: 15px;
-                    &::placeholder{
+
+                    &::placeholder {
                         color: var(--primaria);
                     }
-                    &:focus{
+
+                    &:focus {
                         box-shadow: 0 0 6px var(--primaria);
                     }
                 }
             }
         }
 
-        .box-formulario{
+        .container-formulario {
             margin-top: -30px;
-            .form-superior{
+
+            .form-superior {
                 display: flex;
-                .edicao{
+
+                .edicao {
                     display: flex;
                     margin: 12px;
-                    input{
+
+                    input {
                         width: 35px;
                     }
-                    span{
+
+                    span {
                         margin-top: 20px;
                         margin-left: -17px;
                         color: var(--primaria);
                     }
                 }
             }
-            .form-inferior{
+
+            .form-inferior {
                 display: flex;
                 margin-top: -12px;
                 margin-left: 15px;
-                .data{
+
+                .data {
                     display: flex;
                     margin-left: 80px;
-                    span{
+
+                    span {
                         padding-top: 20px;
                         color: var(--primaria);
                         font-size: 0.9em;
                     }
                 }
-                
             }
-            input{
+
+            input {
                 display: block;
                 color: var(--primaria);
                 width: 310px;
@@ -96,44 +111,51 @@
                 padding-left: 12px;
                 font-size: 15px;
 
-                &#titulo{
+                &#titulo {
                     width: 430px;
                 }
-                &#autor{
+
+                &#autor {
                     width: 430px;
                 }
-                
-                &#qtPag{
+
+                &#qtPag {
                     width: 80px;
                     padding-left: 5px;
                 }
-                &#data{
+
+                &#data {
                     margin-left: 5px;
                     width: 130px;
                 }
-                &::placeholder{
+
+                &::placeholder {
                     color: var(--primaria);
                 }
-                &:focus{
+
+                &:focus {
                     box-shadow: 0 0 6px var(--primaria);
                 }
             }
-            textarea{
+
+            textarea {
                 color: var(--primaria);
                 background-color: #5fbedd58;
                 padding: 5px;
                 border: none;
                 margin-left: 22px;
                 font-size: 15px;
-                &::placeholder{
+
+                &::placeholder {
                     color: var(--primaria);
                 }
-                &:focus{
+
+                &:focus {
                     box-shadow: 0 0 6px var(--primaria);
                 }
             }
 
-            button{
+            button {
                 background-color: #5fbedddb;
                 width: 400px;
                 height: 50px;
@@ -145,27 +167,32 @@
                 align-items: center;
                 margin-left: 30px;
 
-                 &:hover{
+                &:hover {
                     cursor: pointer;
                     opacity: 0.9;
                 }
             }
-           
         }
+
         @media (max-width: 980px) {
             display: block;
             text-align: center;
-            .box-formulario{
+
+            .container-formulario {
                 margin-top: 50px;
                 text-align: center;
-                #autor,#editora{
+
+                #autor,
+                #editora {
                     margin-left: 20%;
                 }
-                .form-superior{
+
+                .form-superior {
                     display: block;
                     margin-left: 20%;
                 }
-                .form-inferior{
+
+                .form-inferior {
                     margin-left: 20%;
                 }
             }

@@ -1,39 +1,30 @@
-import { Component, OnInit } from '@angular/core';
+import { Component} from '@angular/core';
 import { NgForm } from '@angular/forms'
 import { Autor } from 'src/app/model/autor.model';
-import { LivroService } from 'src/app/services/livro.service';
+import { Livro } from 'src/app/model/livro.model';
+import { ApiService } from 'src/app/services/api.service';
 
 @Component({
   selector: 'app-cadastro',
   templateUrl: './cadastro.component.html',
   styleUrls: ['./cadastro.component.scss']
 })
-export class CadastroComponent  implements OnInit {
+export class CadastroComponent {
 
-  constructor(private livroService: LivroService){}
-  imagemView:string = "";
-
-
-  ngOnInit(): void {
-  }
+  imagemPreview:string = "";
   
-  cadastrarLivro(form: NgForm, imagem:string){
-    const livro = form.value;
-    
-    if(imagem != '' || imagem.indexOf("http") != -1){
-      livro.imagem = "https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/1665px-No-Image-Placeholder.svg.png";
-    }else{
-      livro.imagem = imagem
-    }
-    if(livro.edicao == ''){
-      livro.edicao = 0
-    }
-    livro.autores = this.getAutores(livro.autor)
-    
-    this.livroService.cadastrarLivro(livro).subscribe(
+  constructor(
+    private apiService: ApiService
+  ){}
+
+  
+  
+  cadastrarLivro(form: NgForm){
+    const livro = this.tratarDadosForm(form.value);
+
+    this.apiService.cadastrarLivro(livro).subscribe(
       {
         next: res => {
-          console.log(res)
           alert("Cadastrado com Sucesso!")
           location.reload()
         },
@@ -51,15 +42,31 @@ export class CadastroComponent  implements OnInit {
     )
   }
   
-  atualizarImagemView(imagem:string){
-    this.imagemView = imagem
+  
+  tratarDadosForm(form:Livro){
+    if(this.imagemPreview == "" || this.imagemPreview .indexOf("http") < 0){
+      form.imagem = "https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/1665px-No-Image-Placeholder.svg.png";
+    }else{
+      form.imagem = this.imagemPreview 
+    }
+
+    if(form.edicao == null || form.edicao.toString() == ""){
+      form.edicao = 0
+    }
+    form.autores = this.separarAutores(form.autor)
+
+    return form
   }
 
-  getAutores(livroAutores:string){
-    const autores:{ nome:string }[]= [];
-    livroAutores.split(';').forEach((autor:string) => {
+  separarAutores(stringAutores:string){
+    const autores:Autor[]= [];
+    stringAutores.split(';').forEach((autor:string) => {
       autores.push({nome: autor})
     });
     return autores;
+  }
+
+  atualizarImagemPreview(imagem:string){
+    this.imagemPreview = imagem
   }
 }

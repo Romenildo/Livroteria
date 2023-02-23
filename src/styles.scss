@@ -1,6 +1,7 @@
 :root {
     --primaria: #5fbedd;
-    --secundaria: #1c1c29;
+    --background: #1c1c29;
+    --backgroundDiv:#161621;
     --error: #ff0000;
   }
   
@@ -26,7 +27,7 @@
   }
   
   body {
-    background: var(--secundaria);
+    background: var(--background);
     --webkit-font-smoothing: antialiased;
   }
   

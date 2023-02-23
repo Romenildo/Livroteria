@@ -1,5 +1,5 @@
 export class Autor {
-    nome?: string;
+    nome: string;
 
     constructor(nome:string){
         this.nome = nome;

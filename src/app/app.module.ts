@@ -1,7 +1,9 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { HttpClientModule } from '@angular/common/http';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
+
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/template/header/header.component';
 import { NavBarComponent } from './components/template/nav-bar/nav-bar.component';
@@ -13,10 +15,8 @@ import { LivroComponent } from './components/lista-livros/livro/livro.component'
 import { LivroDetalheComponent } from './components/lista-livros/livro-detalhe/livro-detalhe.component';
 import { FiltroComponent } from './components/filtro/filtro.component';
 import { ListaRecentesComponent } from './components/lista-recentes/lista-recentes.component';
-import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { EditarComponent } from './components/editar/editar.component';
 
-import { HttpClientModule } from '@angular/common/http';
-import { EditarComponent } from './editar/editar.component';
 @NgModule({
   declarations: [
     AppComponent,
