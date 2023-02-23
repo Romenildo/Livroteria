@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { LivroService } from 'src/app/services/livro.service';
 
 @Component({
   selector: 'app-livro',
@@ -7,15 +8,25 @@ import { Component, Input } from '@angular/core';
 })
 export class LivroComponent {
 
-  @Input() livro:any;
-  mostrarDetalhe:boolean = false;
-  mostrarEdit:boolean = false;
+  @Input() livro: any;
+  mostrarDetalhe: boolean = false;
+  mostrarEdit: boolean = false;
 
-  mostrarTelaDetalhes(){
+  constructor(private livroService: LivroService) { }
+
+
+  filtrarPorAutor(filtro: string) {
+    this.livroService.atualizarFiltroAutor(filtro)
+  }
+  filtrarPorEditora(filtro: string) {
+    this.livroService.atualizarFiltroEditora(filtro)
+  }
+
+  mostrarTelaDetalhes() {
     this.mostrarDetalhe = !this.mostrarDetalhe;
   }
 
-  mostrarTelaEdit(){
+  mostrarTelaEdit() {
     this.mostrarEdit = !this.mostrarEdit;
   }
 }

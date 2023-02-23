@@ -13,7 +13,6 @@ export class LivroService {
 
   constructor( private apiService: ApiService) { }
 
-
   atualizarFiltroBusca(filtro:string){
     this.apiService.getLivros().subscribe((res:any) => {
       if(filtro == ""){
@@ -49,6 +48,26 @@ export class LivroService {
         }
     })
   }
+
+  atualizarFiltroEditora(filtroEditora:string){
+    this.apiService.getLivros().subscribe((res:any) => {
+
+        this.livros$.next(res.filter((livro:Livro)=>{
+          return livro.editora.indexOf(filtroEditora) != -1
+        }))
+      
+    })
+  }
+  atualizarFiltroAutor(filtroAutor:string){
+    this.apiService.getLivros().subscribe((res:any) => {
+
+        this.livros$.next(res.filter((livro:Livro)=>{
+          return livro.autores.filter((autor:Autor)=>autor.nome.indexOf(filtroAutor) != -1).length > 0
+        }))
+      
+    })
+  }
+
 
   filtrarPorNome(livro:Livro, filtro:string){
     if(
