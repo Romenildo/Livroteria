@@ -3,7 +3,7 @@
         <p>Foram encontrados um total de: {{ quantLivros }} livros cadastrados.</p>
     </div>
 
-    <h2>Livros</h2>
+    <h2 *ngIf="quantLivros > 0">Livros</h2>
     <div class="container">
         <section>
             <app-lista-livros></app-lista-livros>

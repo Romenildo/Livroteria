@@ -1,5 +1,5 @@
-import { Component, Output, Input, EventEmitter } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Component, Output, Input, EventEmitter, ViewChild, AfterViewInit, OnInit,AfterContentInit } from '@angular/core';
+import { NgForm} from '@angular/forms';
 import { Livro } from 'src/app/model/livro.model';
 import { ApiService } from 'src/app/services/api.service';
 import { LivroService } from 'src/app/services/livro.service';
@@ -9,53 +9,54 @@ import { LivroService } from 'src/app/services/livro.service';
   templateUrl: './editar.component.html',
   styleUrls: ['./editar.component.scss']
 })
-export class EditarComponent {
+export class EditarComponent implements OnInit{
   imagemView: string = '';
-  livroForm: FormGroup;
+  @ViewChild('f')editarForm!:NgForm;
   @Input() livroEdit: any;
   @Output('onClose') fecharEmitter: EventEmitter<string> = new EventEmitter();
 
-  ngOnInit(): void {
-    this.setarValoresDoLivroAtual()
-  }
 
   constructor(
-    private fb: FormBuilder,
     private livroService: LivroService,
     private apiService: ApiService
-  ) {
-    this.livroForm = this.fb.group({
-      titulo: ['', [Validators.required, Validators.maxLength(100)]],
-      subTitulo: ['', [Validators.maxLength(100)]],
-      edicao: ['', [Validators.min(0), Validators.max(20)]],
-      quantPaginas: ['', [Validators.min(0), Validators.max(10000)]],
-      dataPublicacao: ['', [Validators.required]],
-      editora: ['', [Validators.required, Validators.maxLength(150)]],
-      autor: ['', [Validators.required]],
-      resumo: ['', [Validators.maxLength(500)]],
-      imagem: [''],
-    })
+  ) {}
+  
+  ngOnInit(): void {
+    setTimeout(() => {
+      this.editarForm.setValue({
+        titulo:this.livroEdit.titulo,
+        subTitulo:this.livroEdit.subTitulo,
+        edicao:this.livroEdit.edicao,
+        autor:this.juntarAutor(this.livroEdit.autores),
+        editora:this.livroEdit.editora,
+        quantPaginas:this.livroEdit.quantPaginas,
+        dataPublicacao:this.formatarData(this.livroEdit.dataPublicacao),
+        resumo:this.livroEdit.resumo,
+        imagem:this.livroEdit.imagem
+      })
+      this.atualizarImagemView(this.livroEdit.imagem)
+    }, 10);
+    
   }
 
   atualizarItem() {
-    if (this.livroForm.valid) {
-      const livro = this.tratarDadosForm(this.livroForm.value)
-  
+    if (this.editarForm.valid) {
+      const livro = this.tratarDadosForm(this.editarForm.value)
       this.apiService.atualizarLivro(this.livroEdit.id, livro)
         .subscribe({
           next: res => {
             const currentItems = this.livroService.livros$.getValue();
                 const itemUpdate: any = currentItems.find(l => l.id == this.livroEdit.id)
-                itemUpdate.titulo = this.livroForm.value.titulo;
-                itemUpdate.subTitulo = this.livroForm.value.subTitulo;
-                itemUpdate.edicao = this.livroForm.value.edicao;
-                itemUpdate.quantPaginas = this.livroForm.value.quantPaginas;
-                itemUpdate.dataPublicacao = this.livroForm.value.dataPublicacao;
-                itemUpdate.autores = this.separarAutores(this.livroForm.value.autor)
-                itemUpdate.editora = this.livroForm.value.editora;
-                itemUpdate.imagem = this.livroForm.value.imagem;
-                itemUpdate.resumo = this.livroForm.value.resumo;
-                this.imagemView = this.livroForm.value.imagem
+                itemUpdate.titulo = this.editarForm.value.titulo;
+                itemUpdate.subTitulo = this.editarForm.value.subTitulo;
+                itemUpdate.edicao = this.editarForm.value.edicao;
+                itemUpdate.quantPaginas = this.editarForm.value.quantPaginas;
+                itemUpdate.dataPublicacao = this.editarForm.value.dataPublicacao;
+                itemUpdate.autores = this.separarAutores(this.editarForm.value.autor)
+                itemUpdate.editora = this.editarForm.value.editora;
+                itemUpdate.imagem = this.editarForm.value.imagem;
+                itemUpdate.resumo = this.editarForm.value.resumo;
+                this.imagemView = this.editarForm.value.imagem
                 this.fecharTelaEdit()
           },
           error: err => {
@@ -106,44 +107,12 @@ export class EditarComponent {
     this.imagemView = imagem
   }
 
+  formatarData(data:string){
+    const [dia, mes, ano] = data.split('/');
+    return`${ano}-${mes}-${dia}`;
+  }
+
   fecharTelaEdit() {
     this.fecharEmitter.emit('fechar')
-  }
-
-  setarValoresDoLivroAtual() {
-    this.livroForm = this.fb.group({
-      titulo: [this.livroEdit.titulo, [Validators.required, Validators.maxLength(100)]],
-      subTitulo: [this.livroEdit.subTitulo, [Validators.maxLength(100)]],
-      edicao: [this.livroEdit.edicao, [Validators.min(0), Validators.max(20)]],
-      quantPaginas: [this.livroEdit.quantPaginas, [Validators.min(0), Validators.max(10000)]],
-      dataPublicacao: [this.livroEdit.dataPublicacao, [Validators.required]],
-      editora: [this.livroEdit.editora, [Validators.required, Validators.maxLength(150)]],
-      autor: [this.juntarAutor(this.livroEdit.autores), [Validators.required]],
-      resumo: [this.livroEdit.resumo, [Validators.maxLength(500)]],
-      imagem: [this.livroEdit.imagem],
-    })
-    this.atualizarImagemView(this.livroForm.value.imagem)
-  }
-
-  get titulo() {
-    return this.livroForm.get('titulo');
-  }
-  get subTitulo() {
-    return this.livroForm.get('subTitulo');
-  }
-  get edicao() {
-    return this.livroForm.get('edicao');
-  }
-  get quantPaginas() {
-    return this.livroForm.get('quantPaginas');
-  }
-  get dataPublicacao() {
-    return this.livroForm.get('dataPublicacao');
-  }
-  get editora() {
-    return this.livroForm.get('editora');
-  }
-  get autor() {
-    return this.livroForm.get('autor');
   }
 }

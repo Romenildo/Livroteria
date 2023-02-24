@@ -1,13 +1,13 @@
 .container {
     position: absolute;
-    max-width: 600px;
     height: 300px;
-    max-height: 320px;
     background-color: #161621;
     border: 1px solid gray;
     border-radius: 3px;
-    max-height: 320px;
     overflow-y: scroll;
+    max-height: 320px;
+    min-width: 500px;
+    max-width: 600px;
 
     .acoes {
         display: flex;

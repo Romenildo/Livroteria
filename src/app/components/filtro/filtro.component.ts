@@ -22,7 +22,7 @@ export class FiltroComponent {
     if(filtro.anoMin.toString()=="")filtro.anoMin = 1900
     if(filtro.edicaoMax.toString()=="")filtro.edicaoMax = 20
     if(filtro.edicaoMin.toString()=="")filtro.edicaoMin = 0
-    if(filtro.qtPagMax.toString()=="")filtro.qtPagMax = 20000
+    if(filtro.qtPagMax.toString()=="")filtro.qtPagMax = 10000
     if(filtro.qtPagMin.toString()=="")filtro.qtPagMin = 0
 
     return filtro

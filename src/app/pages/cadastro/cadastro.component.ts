@@ -1,4 +1,4 @@
-import { Component} from '@angular/core';
+import { Component, ViewChild} from '@angular/core';
 import { NgForm } from '@angular/forms'
 import { Autor } from 'src/app/model/autor.model';
 import { Livro } from 'src/app/model/livro.model';
@@ -12,7 +12,8 @@ import { ApiService } from 'src/app/services/api.service';
 export class CadastroComponent {
 
   imagemPreview:string = "";
-  
+  @ViewChild('f')editarForm!:NgForm;
+
   constructor(
     private apiService: ApiService
   ){}
@@ -26,7 +27,8 @@ export class CadastroComponent {
       {
         next: res => {
           alert("Cadastrado com Sucesso!")
-          location.reload()
+          this.editarForm.reset()
+          //location.reload()
         },
         error: err => {
           try {
