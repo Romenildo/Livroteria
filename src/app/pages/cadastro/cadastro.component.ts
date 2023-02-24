@@ -11,15 +11,13 @@ import { ApiService } from 'src/app/services/api.service';
 })
 export class CadastroComponent {
 
-  imagemPreview:string = "";
-  @ViewChild('f')editarForm!:NgForm;
+  imagemPreview:string = ""; 
+  @ViewChild('f')cadastroForm!:NgForm;
 
   constructor(
     private apiService: ApiService
   ){}
 
-  
-  
   cadastrarLivro(form: NgForm){
     const livro = this.tratarDadosForm(form.value);
 
@@ -27,8 +25,8 @@ export class CadastroComponent {
       {
         next: res => {
           alert("Cadastrado com Sucesso!")
-          this.editarForm.reset()
-          //location.reload()
+          this.atualizarImagemPreview("https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/1665px-No-Image-Placeholder.svg.png")
+          this.cadastroForm.reset()
         },
         error: err => {
           try {
@@ -69,6 +67,10 @@ export class CadastroComponent {
   }
 
   atualizarImagemPreview(imagem:string){
-    this.imagemPreview = imagem
+    if(this.cadastroForm.value.imagem == "" || this.cadastroForm.value.imagem.indexOf("http") < 0){
+      this.imagemPreview  = "https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/1665px-No-Image-Placeholder.svg.png";
+    }else{
+      this.imagemPreview = imagem
+    }
   }
 }

@@ -5,7 +5,7 @@
         <p class="aviso" *ngIf="!f.valid"> Os campos com (*) são obrigatórios</p>
     </div>
 
-    <div class="container-cadastro">
+    <form class="container-cadastro" (ngSubmit)="cadastrarLivro(f)" #f="ngForm">
         <div class="container-imagem">
             <img [src]="imagemPreview" alt="Vazio ou Imagem Inválida">
             
@@ -14,13 +14,15 @@
                  type="text" 
                  id="file-string" 
                  placeholder="Url Imagem" 
+                 ngModel
+                 name="imagem"
                  #imagem
                  (mouseleave)="atualizarImagemPreview(imagem.value)"
                  >
             </div>          
         </div>
 
-        <form (ngSubmit)="cadastrarLivro(f)" #f="ngForm" class="container-formulario">
+        <div  class="container-formulario">
                 
             <div class="form-superior">
                 <div class="titulos">
@@ -112,6 +114,6 @@
                <div class="button">
                 <button type="submit" [disabled]="!f.valid">Cadastrar</button>
             </div>
-        </form>
-    </div>
+        </div>
+    </form>
 </div>

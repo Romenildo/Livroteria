@@ -10,9 +10,12 @@ import { ApiService } from 'src/app/services/api.service';
   styleUrls: ['./lista-livros.component.scss']
 })
 export class ListaLivrosComponent implements OnInit {
-
   livros:Livro[] = []
-  filtroAtual:string = ""
+
+  page: number = 1;
+  count: number = 0;
+  tableSize: number = 12;
+  
   constructor(
     private livroService: LivroService,
     private apiService: ApiService
@@ -25,4 +28,15 @@ export class ListaLivrosComponent implements OnInit {
       next: (res:any)=> this.livroService.livros$.next(res),
     });
   }
+
+  onTableDataChange(event: any) {
+    this.page = event;
+  }
+
+  onTableSizeChange(event: any): void {
+    this.tableSize = event.target.value;
+    this.page = 1;
+  }
+
+
 }

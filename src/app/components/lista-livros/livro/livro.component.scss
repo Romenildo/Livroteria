@@ -5,6 +5,7 @@
     max-height: 330px;
     min-height: 330px;
     overflow-y: scroll;
+    max-width: 220px;
 
     &:hover {
         box-shadow: 0 0 6px var(--primaria);
@@ -12,7 +13,7 @@
 
     img {
         height: 230px;
-        width: 160px;
+        min-width: 160px;
         padding: 0px 24px;
 
     }

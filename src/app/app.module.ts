@@ -16,7 +16,7 @@ import { LivroDetalheComponent } from './components/lista-livros/livro-detalhe/l
 import { FiltroComponent } from './components/filtro/filtro.component';
 import { ListaRecentesComponent } from './components/lista-recentes/lista-recentes.component';
 import { EditarComponent } from './components/editar/editar.component';
-
+import { NgxPaginationModule } from 'ngx-pagination';
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,7 +36,8 @@ import { EditarComponent } from './components/editar/editar.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    NgxPaginationModule
   ],
   providers: [],
   bootstrap: [AppComponent]

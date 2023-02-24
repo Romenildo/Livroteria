@@ -88,7 +88,7 @@ Após baixar as dependencias do projeto angular basta executar o aplicação no 
 
 
 <h3 align="center"> 
-    Bonus: é possivel filtrar a partir do fivro clicando no autor ou editora, que o filtro irá se atualizar e retornar todos os livros daquele autor ou editora selecionada.
+    Bonus: é possivel filtrar a partir do filtro clicando no autor ou editora, que o filtro irá se atualizar e retornar todos os livros daquele autor ou editora selecionada.
 </h3>
 
 ![filtroBonus](https://github.com/Romenildo/Treinamento-GIT/blob/master/imgs/projeto-final/filtroPorautor.png)
