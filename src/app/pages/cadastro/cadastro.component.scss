@@ -26,6 +26,7 @@
 
         .alerta {
             position: absolute;
+            margin-top: -7px;
             font-size: 0.7em;
             color: var(--error);
         }
@@ -65,35 +66,34 @@
             margin-top: -30px;
 
             .form-superior {
-                display: flex;
-
-                .edicao {
+                .subtitulo-edicao-box{
                     display: flex;
-                    margin: 12px;
+                    .edicao {
+                        display: flex;
+                        margin-left: -27px;
+                        input {
+                            width: 35px;
+                        }
 
-                    input {
-                        width: 35px;
-                    }
-
-                    span {
-                        margin-top: 20px;
-                        margin-left: -17px;
-                        color: var(--primaria);
+                        span {
+                            margin-top: 20px;
+                            margin-left: -17px;
+                            color: var(--primaria);
+                        }
                     }
                 }
+                
             }
 
             .form-inferior {
                 display: flex;
-                margin-top: -12px;
-                margin-left: 15px;
 
                 .data {
                     display: flex;
-                    margin-left: 80px;
+                    margin-left: 62px;
 
                     span {
-                        padding-top: 20px;
+                        padding-top: 15px;
                         color: var(--primaria);
                         font-size: 0.9em;
                     }
@@ -103,25 +103,23 @@
             input {
                 display: block;
                 color: var(--primaria);
-                width: 310px;
+                width: 430px;
                 height: 32px;
-                margin: 12px 20px;
+                margin: 7px 20px;
                 background-color: #5fbedd58;
                 border: none;
                 padding-left: 12px;
                 font-size: 15px;
 
-                &#titulo {
-                    width: 430px;
+                &#subTitulo {
+                    width: 310px;
                 }
-
-                &#autor {
-                    width: 430px;
+                &#editora{
+                    margin-top: 8px;
                 }
-
                 &#qtPag {
-                    width: 80px;
-                    padding-left: 5px;
+                    width: 90px;
+                    padding-left: 10px;
                 }
 
                 &#data {
@@ -143,7 +141,8 @@
                 background-color: #5fbedd58;
                 padding: 5px;
                 border: none;
-                margin-left: 22px;
+                margin-left: 20px;
+                width: 435px;
                 font-size: 15px;
 
                 &::placeholder {
@@ -165,7 +164,7 @@
                 margin-top: 15px;
                 justify-content: center;
                 align-items: center;
-                margin-left: 30px;
+                margin-left: 40px;
 
                 &:hover {
                     cursor: pointer;

@@ -25,16 +25,16 @@
         <div  class="container-formulario">
                 
             <div class="form-superior">
-                <div class="titulos">
-                    <input 
-                     type="text" 
-                     id="titulo" 
-                     placeholder="Titulo*" 
-                     name="titulo"
-                     ngModel
-                     required
-                     maxlength="100"
-                     >
+                <input 
+                 type="text" 
+                 id="titulo" 
+                 placeholder="Titulo*" 
+                 name="titulo"
+                 ngModel
+                 required
+                 maxlength="100"
+                >
+                <div class="subtitulo-edicao-box">
                     <input 
                      type="text"
                      id="subTitulo" 
@@ -43,20 +43,20 @@
                      ngModel
                      maxlength="100"
                      >
-                </div>
-                <div class="edicao">
-                    <p class="alerta" *ngIf="f.value.edicao > 20">*Valor entre 0 e 20</p>
-                    <input 
-                     type="number" 
-                     id="edicao" 
-                     placeholder="Nº"
-                     name="edicao"
-                     ngModel
-                     max="20"
-                     min="0"
-                     >
-                    <span>ª Edicao</span>
-                </div>
+                    <div class="edicao">
+                        <p class="alerta" *ngIf="f.value.edicao > 20">*Valor entre 0 e 20</p>
+                        <input 
+                         type="number" 
+                         id="edicao" 
+                         placeholder="Nº"
+                         name="edicao"
+                         ngModel
+                         max="20"
+                         min="0"
+                         >
+                        <span>ª Edicao</span>
+                    </div>
+                 </div>  
             </div>
 
             <input 
