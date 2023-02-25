@@ -27,44 +27,55 @@ export class LivroService {
 
   atualizarFiltroBuscaAvancada(filtro:Filtro){
     this.apiService.getLivros().subscribe((res:any) => {
-        this.livros$.next(res.filter((livro:Livro)=>{
+       let listaEmFiltragem = res
+       
+       listaEmFiltragem = listaEmFiltragem.filter((livro:Livro)=>{
           return this.filtragemBuscaAvancada(livro, filtro)
-        }))
+        })
 
         if(filtro.titulo != ""){
-          this.livros$.next(res.filter((livro:Livro)=>{
+          listaEmFiltragem = listaEmFiltragem.filter((livro:Livro)=>{
             return livro.titulo.indexOf(filtro.titulo) != -1
-          }))
+          })
         }
         if(filtro.editora != ""){
-          this.livros$.next(res.filter((livro:Livro)=>{
+          listaEmFiltragem = listaEmFiltragem.filter((livro:Livro)=>{
             return livro.editora.indexOf(filtro.editora) != -1
-          }))
+          })
         }
         if(filtro.autor != ""){
-          this.livros$.next(res.filter((livro:Livro)=>{
+          listaEmFiltragem = listaEmFiltragem.filter((livro:Livro)=>{
             return livro.autores.filter((autor:Autor)=>autor.nome.indexOf(filtro.autor) != -1).length > 0
-          }))
+          })
         }
+        this.livros$.next(listaEmFiltragem)
     })
   }
 
   atualizarFiltroEditora(filtroEditora:string){
     this.apiService.getLivros().subscribe((res:any) => {
-
         this.livros$.next(res.filter((livro:Livro)=>{
           return livro.editora.indexOf(filtroEditora) != -1
         }))
-      
     })
   }
   atualizarFiltroAutor(filtroAutor:string){
     this.apiService.getLivros().subscribe((res:any) => {
-
         this.livros$.next(res.filter((livro:Livro)=>{
           return livro.autores.filter((autor:Autor)=>autor.nome.indexOf(filtroAutor) != -1).length > 0
         }))
-      
+    })
+  }
+
+  atualizarFiltroPelaInicial(letraFiltro:string){
+    this.apiService.getLivros().subscribe((res:any) => {
+      if(letraFiltro == '#'){
+        this.livros$.next(res)
+      }else{
+        this.livros$.next(res.filter((livro:Livro)=>{
+          return livro.titulo[0].toUpperCase()==letraFiltro
+        }))
+      }
     })
   }
 

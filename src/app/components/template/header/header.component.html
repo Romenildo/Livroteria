@@ -15,4 +15,10 @@
     <div class="nav">
         <app-nav-bar ></app-nav-bar>
     </div>
+
+    <div class="lista-letras" >
+        <div (click)="filtrarPelaInicial(l)" class="item" *ngFor="let l of letras" >
+            <p >{{l}}</p>
+        </div>
+    </div>
 </div>
