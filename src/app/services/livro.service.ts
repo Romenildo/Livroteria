@@ -66,7 +66,6 @@ export class LivroService {
         }))
     })
   }
-
   atualizarFiltroPelaInicial(letraFiltro:string){
     this.apiService.getLivros().subscribe((res:any) => {
       if(letraFiltro == '#'){
@@ -82,10 +81,10 @@ export class LivroService {
 
   filtrarPorNome(livro:Livro, filtro:string){
     if(
-         (livro.subTitulo.indexOf(filtro) != -1 )
-      || (livro.titulo.indexOf(filtro) != -1) 
-      || (livro.editora.indexOf(filtro) != -1) 
-      || (livro.autores.filter((autor:Autor)=>autor.nome.indexOf(filtro) != -1).length > 0)
+         (livro.subTitulo?.indexOf(filtro) != -1 )
+      || (livro.titulo?.indexOf(filtro) != -1) 
+      || (livro.editora?.indexOf(filtro) != -1) 
+      || (livro.autores?.filter((autor:Autor)=>autor.nome?.indexOf(filtro) != -1).length > 0)
       ){
       return true
     }
@@ -105,7 +104,6 @@ export class LivroService {
   }
 
   ordenarLivros(lista:any, tipoOrdenacao:string){
-    
     switch (tipoOrdenacao) {
       case "Normal":
         return lista

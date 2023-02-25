@@ -1,23 +1,24 @@
 
   <div [ngClass]="mudarModoVisualizacao()">
-    <app-livro *ngFor="let livro of livros  | paginate
-        : {
+    <app-livro 
+    *ngFor="let livro of livros  
+    | paginate : {
             itemsPerPage: tableSize,
             currentPage: page,
             totalItems: count
           };
-    let i = index"
+     let i = index"
      [livro]="livro"
      [modoLista]="modoLista"
      @list
-     ></app-livro>
+    ></app-livro>
   </div>
 
 
-<div class="paginacao" *ngIf="livros.length > 0">
+<div class="paginacao" *ngIf="livros.length > 12">
   <pagination-controls 
     previousLabel="Ante." 
     nextLabel="Prox."
-    (pageChange)="onTableDataChange($event)"
-  ></pagination-controls>
+    (pageChange)="onTableDataChange($event)">
+  </pagination-controls>
 </div>

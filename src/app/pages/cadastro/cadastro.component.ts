@@ -27,7 +27,7 @@ export class CadastroComponent {
       {
         next: res => {
           this.alertaService.mostrarAlerta("Cadastrado com Sucesso!")
-          this.atualizarImagemPreview("https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/1665px-No-Image-Placeholder.svg.png")
+          this.atualizarImagemPreview("")
           this.cadastroForm.reset()
         },
         error: err => {
@@ -40,7 +40,7 @@ export class CadastroComponent {
   
   
   tratarDadosForm(form:Livro){
-    if(this.imagemPreview == "" || this.imagemPreview .indexOf("http") < 0){
+    if(this.imagemPreview == "" || this.imagemPreview.indexOf("http") < 0){
       form.imagem = "https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/1665px-No-Image-Placeholder.svg.png";
     }else{
       form.imagem = this.imagemPreview 

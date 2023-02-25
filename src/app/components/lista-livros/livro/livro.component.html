@@ -16,7 +16,7 @@
     <div class="descricao">
         <div class="titulo" (click)="mostrarTelaDetalhes()">
             <span>{{livro.titulo}} </span>
-            <span *ngIf="livro.subTitulo.length > 0">({{livro.subTitulo}})</span>
+            <span *ngIf="livro.subTitulo?.length > 0">({{livro.subTitulo}})</span>
             <span class="edicao" *ngIf="livro.edicao > 0"> ({{livro.edicao}}ª edicao)</span>
         </div>
         <div class="detalhes">

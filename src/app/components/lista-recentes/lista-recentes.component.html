@@ -3,7 +3,7 @@
         <h2>Últimos adicionados</h2>
         <div class="lista">
             <div class="item" *ngFor="let livro of livrosRecentes">
-                <img [src]="livro.imagem" alt="Error na Imagem">
+                <img [src]="livro.imagem" alt="Erro na Imagem">
                 <div class="info">
                     <p> {{livro.titulo}}
                         <span *ngIf="livro.edicao > 0"> ({{livro.edicao}}ªEdicao) </span>

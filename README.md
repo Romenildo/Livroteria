@@ -44,54 +44,55 @@ Após baixar as dependencias do projeto angular basta executar o aplicação no 
 ```
 <h1 align="center" > Detalhes sobre a Aplicação </h1>
 
-<h3 align="center"> 
-    Inicialmente na tela principal da lista de livros temos a seguinte tela, o qual possui toda a navegação e visualização dos livros.
-</h3>
-
-![inicial](https://github.com/Romenildo/Treinamento-GIT/blob/master/imgs/projeto-final/telaInicial.png)
-
-<h3 align="center"> 
-    Onde ao clicar na imagem do livro é possivel visualizar mais informações detalhadas sobre a obra, além das opções de excluir e editar o livro.
-</h3>
-
-![selecionado](https://github.com/Romenildo/Treinamento-GIT/blob/master/imgs/projeto-final/livroSelecionado.png)
-
-<h3 align="center"> 
-    Ao selecionar a opção de editar mostrarar um modal com os cmapos do livro para ser feito a possivel alteração em qualquer campo ou imagem.
-</h3>
-
-![editar](https://github.com/Romenildo/Treinamento-GIT/blob/master/imgs/projeto-final/editar.png)
-
-<h3 align="center"> 
+<h4 align="center"> 
+    Inicialmente na tela principal da lista de livros temos a seguinte tela, o qual possui toda a navegação e visualização dos livros, podendo escolher entre duas formas de visualizar sendo de lista ou em grid. Onde ao clicar na imagem do livro é possivel visualizar mais informações detalhadas sobre a obra, além das opções de excluir e editar o livro.
     Além disso na tela Inicial também vem com uma lista de controle dos ultimos livros adicionados, para uma melhor organização ao ir adicionando os livros no sistema.
-</h3>
+</h4>
 
-![ultimos](https://github.com/Romenildo/Treinamento-GIT/blob/master/imgs/projeto-final/ultimosAdicionados.png)
+![inicial](https://github.com/Romenildo/Treinamento-GIT/blob/master/imgs/projeto-final/gifs/TelaInicial2.gif)
 
-<h3 align="center"> 
-    A tela de filtro além do filtro padrão ao topo da tela Inicial, é diferente pois possui um filtro maios preciso de como deseja ser feito a busca, caso por determinado autor, editora, ano de publicação, ou até mesmo limitar a quantidade de páginas que o livro possui.
-</h3>
+<h4 align="center"> 
+    Ao selecionar a opção de editar mostrará um modal com os campos do livro para ser feito a possivel alteração em qualquer campo ou imagem a qual possui uma pré-visualização da mesma. A edição também possui as validações dos campos obrigatórios.
+</h4>
 
-![filtro](https://github.com/Romenildo/Treinamento-GIT/blob/master/imgs/projeto-final/filtragem.png)
+![editar](https://github.com/Romenildo/Treinamento-GIT/blob/master/imgs/projeto-final/gifs/Editar.gif)
 
-<h3 align="center"> 
+
+<h4 align="center"> 
+    A aplicação vem com o sistema de diversos filtros para ajudar no gerenciamentos dos livros no sistema sendo elas. Primeiramente pelo filtro do header onde a busca é feita a partir da palavra buscando tanto nos títulos, subtitulos e autores.
+</h4>
+
+![filtro1](https://github.com/Romenildo/Treinamento-GIT/blob/master/imgs/projeto-final/gifs/filtroheader.gif)
+
+<h4 align="center"> 
+    Logo abaixo possui um segundo filtro, com as opções das letras do alfabeto é possivel selecionar a letra inicial do título do livro que está buscando que o sistema filtrará pela selecionada.
+</h4>
+
+![filtro2](https://github.com/Romenildo/Treinamento-GIT/blob/master/imgs/projeto-final/gifs/filtroLetras.gif)
+
+<h4 align="center"> 
+    Filtro avançado que além do filtro padrão ao topo da tela Inicial, possui um filtro mais preciso de como deseja ser feito a busca, caso por determinado autor, editora, ano de publicação, ou até mesmo limitar a quantidade de páginas que o livro possui.
+</h4>
+
+![filtro3](https://github.com/Romenildo/Treinamento-GIT/blob/master/imgs/projeto-final/gifs/filtroAvancado.gif)
+
+<h4 align="center"> 
+    Outra opção o qual é possivel filtrar a partir do filtro clicando no autor ou editora, que o filtro irá se atualizar e retornar todos os livros daquele autor ou editora selecionada.
+</h4>
+
+![filtroBonus](https://github.com/Romenildo/Treinamento-GIT/blob/master/imgs/projeto-final/gifs/filtroAutor.gif)
+
+<h4 align="center"> 
+    Além da filtragem do filtro avançado também é possivel selecionar a ordem que os livros irão ficar organizados. Podendo ser ela entre, Os adicionados recentes, os mais antigos adicionados, por ordem alfabeta(A-Z) ou o inverso de (Z-A).
+</h4>
+
+![ordenacao](https://github.com/Romenildo/Treinamento-GIT/blob/master/imgs/projeto-final/gifs/ordenacao.gif)
+
+<h4 align="center"> 
     Por fim a tela de cadastrar novos livros no sitema, o qual possui as validações apropriadas e uma pré visualização da capa do livro(caso nao seja adicionado um link, ou o link quebrado a capa do livro retornara uma padrao informando que nao possui imagem)
-</h3>
+</h4>
 
 ![cadastrar](https://github.com/Romenildo/Treinamento-GIT/blob/master/imgs/projeto-final/cadastrar.png)
-
-<h3 align="center"> 
-    Exemplo de um cadastro de livro
-</h3>
-
-![cadastrarItem](https://github.com/Romenildo/Treinamento-GIT/blob/master/imgs/projeto-final/cadastraritem.png)
-
-
-<h3 align="center"> 
-    Bonus: é possivel filtrar a partir do filtro clicando no autor ou editora, que o filtro irá se atualizar e retornar todos os livros daquele autor ou editora selecionada.
-</h3>
-
-![filtroBonus](https://github.com/Romenildo/Treinamento-GIT/blob/master/imgs/projeto-final/filtroPorautor.png)
 
 
 <h1 align="center" > Mais detalhes sobre o desafio </h1>
