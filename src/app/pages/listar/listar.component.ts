@@ -9,7 +9,7 @@ import { LivroService } from 'src/app/services/livro.service';
 })
 export class ListarComponent implements OnInit {
   quantLivros: number = 0;
-  modoLista:string = 'flat';
+  modoLista:string = 'detalhe';
 
   constructor(private livroService: LivroService) {}
 

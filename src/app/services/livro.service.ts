@@ -48,7 +48,7 @@ export class LivroService {
             return livro.autores.filter((autor:Autor)=>autor.nome.indexOf(filtro.autor) != -1).length > 0
           })
         }
-        this.livros$.next(listaEmFiltragem)
+        this.livros$.next(this.ordenarLivros(listaEmFiltragem, filtro.ordenar))
     })
   }
 
@@ -102,6 +102,33 @@ export class LivroService {
       return true
     }
     return false;
+  }
+
+  ordenarLivros(lista:any, tipoOrdenacao:string){
+    
+    switch (tipoOrdenacao) {
+      case "Normal":
+        return lista
+      case "Recentes":
+        return this.ordenarPorMaisVelhos(lista)
+      case "Antigos":
+        return this.ordenarPorMaisVelhos(lista).reverse()
+      case "A-Z":
+        return this.ordenarPorAlfabeto(lista)
+      case "Z-A":
+        return this.ordenarPorAlfabeto(lista).reverse()
+    }
+  }
+
+  ordenarPorMaisVelhos(livros:Livro[]){
+    return livros.sort((l1: any, l2: any) => {
+      return l1.criado_em.localeCompare(l2.criado_em);
+    });
+  }
+  ordenarPorAlfabeto(livros:Livro[]){
+    return livros.sort((l1: any, l2: any) => {
+      return l1.titulo.toUpperCase() < l2.titulo.toUpperCase() ? -1 : l1.titulo.toUpperCase() > l2.titulo.toUpperCase() ? 1 : 0;
+    });
   }
 
 }

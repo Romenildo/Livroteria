@@ -10,9 +10,11 @@ import { LivroService } from 'src/app/services/livro.service';
 })
 export class FiltroComponent {
 
+  opcaoOrdenar = ['Normal','Recentes','Antigos', 'A-Z', 'Z-A']
   constructor(private livroService: LivroService){}
 
   filtrar(form: NgForm){
+    console.log(form.value)
     const filtro = this.setarValorPadraoForm(form.value);
     this.livroService.atualizarFiltroBuscaAvancada(filtro)
   }
@@ -24,6 +26,7 @@ export class FiltroComponent {
     if(filtro.edicaoMin.toString()=="")filtro.edicaoMin = 0
     if(filtro.qtPagMax.toString()=="")filtro.qtPagMax = 10000
     if(filtro.qtPagMin.toString()=="")filtro.qtPagMin = 0
+    if(filtro.ordenar=="")filtro.ordenar = "Normal"
 
     return filtro
   }

@@ -7,5 +7,6 @@ export interface Filtro {
     edicaoMax:number;
     edicaoMin:number;
     qtPagMax:number;
-    qtPagMin:number;    
+    qtPagMin:number;   
+    ordenar:string; 
 }

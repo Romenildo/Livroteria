@@ -75,6 +75,13 @@
                 ngModel
                 name="anoMax">
             </div>
+            <div class="item">
+                <span>Ordenar: </span>
+                <select name="ordenar" ngModel class="dropdown">
+                    <option value="" selected disabled hidden>Escolher</option>
+                    <option *ngFor="let opcao of opcaoOrdenar"  [value]="opcao" >{{opcao}}</option>
+                    </select>
+            </div>
 
             <input type="text" placeholder="Título..." name="titulo" ngModel>
             <button type="submit"  [disabled]="!f.valid"> 
