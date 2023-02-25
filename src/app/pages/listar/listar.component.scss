@@ -19,14 +19,39 @@
         padding-left: 10%;
         gap: 40px;
 
+
         section {
             width: 70%;
             height: 100%;
         }
 
+        
         aside {
             height: 100%;
             width: 25%;
+            margin-top: -40px;
+            .modoView-container{
+                display: flex;
+                gap: 10px;
+                margin-bottom: 10px;
+                justify-content: right;
+                .iconModoView{
+                    width: 30px;
+                    height: 30px;
+                    border-radius: 4px;
+                    background-color: var(--backgroundDiv);
+
+                    img{
+                        transform: scale(0.5);
+                        margin-top: -8px;
+                        margin-left: -8px;
+                    }
+                    &:hover{
+                        background-color: var(--primaria);
+                        cursor: pointer;
+                    }
+                }
+            }
         }
 
         @media (max-width: 1280px) {

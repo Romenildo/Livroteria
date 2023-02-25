@@ -1,4 +1,4 @@
-import { Component, OnInit} from '@angular/core';
+import { Component, OnInit, Input} from '@angular/core';
 import { Livro } from 'src/app/model/livro.model';
 import { Autor } from 'src/app/model/autor.model';
 import { LivroService } from 'src/app/services/livro.service';
@@ -11,10 +11,10 @@ import { ApiService } from 'src/app/services/api.service';
 })
 export class ListaLivrosComponent implements OnInit {
   livros:Livro[] = []
-
+  @Input() modoLista?: string;
   page: number = 1;
   count: number = 0;
-  tableSize: number = 12;
+  tableSize: number =12;
   
   constructor(
     private livroService: LivroService,
@@ -29,6 +29,12 @@ export class ListaLivrosComponent implements OnInit {
     });
   }
 
+  mudarModoVisualizacao(){
+    if(this.modoLista=="flat"){
+      return 'lista-livros-flat'
+    }
+    return 'lista-livros'
+  }
   onTableDataChange(event: any) {
     this.page = event;
   }

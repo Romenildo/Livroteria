@@ -38,3 +38,21 @@
         }
     }
 }
+
+.container-livro-flat{
+    background-color: var(--backgroundDiv);
+    padding: 12px;
+    padding-left: 30px;
+    margin: 6px;
+    &:hover{
+        cursor: pointer;
+        border: 1px grey solid;
+    }
+    .titulo{
+        color: var(--primaria);
+        font-size: 0.9em; 
+    }
+    img, .detalhes{
+        display: none;
+    }
+}

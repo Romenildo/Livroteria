@@ -1,18 +1,22 @@
-<div class="lista-livros">
-  <app-livro *ngFor="let livro of livros  | paginate
+
+  <div [ngClass]="mudarModoVisualizacao()">
+    <app-livro *ngFor="let livro of livros  | paginate
         : {
             itemsPerPage: tableSize,
             currentPage: page,
             totalItems: count
           };
-    let i = index
-  " [livro]="livro"></app-livro>
-</div>
+    let i = index"
+     [livro]="livro"
+     [modoLista]="modoLista"
+     ></app-livro>
+  </div>
+
 
 <div class="paginacao" *ngIf="livros.length > 0">
-    <pagination-controls 
-      previousLabel="Ante." 
-      nextLabel="Prox." 
-      (pageChange)="onTableDataChange($event)"
-    ></pagination-controls>
+  <pagination-controls 
+    previousLabel="Ante." 
+    nextLabel="Prox."
+    (pageChange)="onTableDataChange($event)"
+  ></pagination-controls>
 </div>

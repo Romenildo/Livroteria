@@ -8,9 +8,17 @@
     <h2 *ngIf="quantLivros > 0">Livros</h2>
     <div class="container">
         <section>
-            <app-lista-livros></app-lista-livros>
+            <app-lista-livros [modoLista] = modoLista></app-lista-livros>
         </section>
         <aside>
+            <div class="modoView-container">
+                <div (click)="modoLista='detalhe'" class="iconModoView">
+                    <img src="../../../../assets/icons/grid.svg" alt="">
+                </div>
+                <div (click)="modoLista='flat'" class="iconModoView">
+                    <img src="../../../../assets/icons/lista.svg" alt="">
+                </div>
+            </div>
             <app-filtro></app-filtro>
             <app-lista-recentes></app-lista-recentes>
         </aside>

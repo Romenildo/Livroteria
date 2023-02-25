@@ -9,6 +9,7 @@ import { LivroService } from 'src/app/services/livro.service';
 export class LivroComponent {
 
   @Input() livro: any;
+  @Input() modoLista?: string;
   mostrarDetalhe: boolean = false;
   mostrarEdit: boolean = false;
 
@@ -28,5 +29,12 @@ export class LivroComponent {
 
   mostrarTelaEdit() {
     this.mostrarEdit = !this.mostrarEdit;
+  }
+
+  mudarModoVisualizacao(){
+    if(this.modoLista=="flat"){
+      return 'container-livro-flat'
+    }
+    return 'container-livro'
   }
 }

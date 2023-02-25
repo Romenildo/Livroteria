@@ -35,7 +35,7 @@ import { FiltroLetrasComponent } from './components/filtro/filtro-letras/filtro-
     FiltroComponent,
     ListaRecentesComponent,
     EditarComponent,
-    FiltroLetrasComponent
+    FiltroLetrasComponent,
   ],
   imports: [
     BrowserModule,

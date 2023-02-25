@@ -179,21 +179,10 @@
 
             .container-formulario {
                 margin-top: 50px;
+                position: absolute;
                 text-align: center;
-
-                #autor,
-                #editora {
-                    margin-left: 20%;
-                }
-
-                .form-superior {
-                    display: block;
-                    margin-left: 20%;
-                }
-
-                .form-inferior {
-                    margin-left: 20%;
-                }
+                left: 50%;
+                margin-left: -215px;
             }
         }
     }

@@ -1,4 +1,4 @@
-<div class="container-livro">
+<div [ngClass]="mudarModoVisualizacao()">
     <app-livro-detalhe 
         *ngIf="mostrarDetalhe" 
         (onClose)="mostrarTelaDetalhes()" 
@@ -14,7 +14,7 @@
 
     <img [src]="livro.imagem" alt="Erro na Imagem" (click)="mostrarTelaDetalhes()">
     <div class="descricao">
-        <div class="titulo">
+        <div class="titulo" (click)="mostrarTelaDetalhes()">
             <span>{{livro.titulo}} </span>
             <span *ngIf="livro.subTitulo.length > 0">({{livro.subTitulo}})</span>
             <span class="edicao" *ngIf="livro.edicao > 0"> ({{livro.edicao}}ª edicao)</span>
