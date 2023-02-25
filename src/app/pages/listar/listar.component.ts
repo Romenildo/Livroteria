@@ -9,6 +9,7 @@ import { LivroService } from 'src/app/services/livro.service';
 })
 export class ListarComponent implements OnInit {
   quantLivros: number = 0;
+  
 
   constructor(private livroService: LivroService) {}
 
@@ -17,4 +18,6 @@ export class ListarComponent implements OnInit {
       (livros:Livro[]) => (this.quantLivros = livros.length)
     );
   }
+
+  
 }

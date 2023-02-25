@@ -2,6 +2,7 @@ import { Component, ViewChild} from '@angular/core';
 import { NgForm } from '@angular/forms'
 import { Autor } from 'src/app/model/autor.model';
 import { Livro } from 'src/app/model/livro.model';
+import { AlertaService } from 'src/app/services/alerta.service';
 import { ApiService } from 'src/app/services/api.service';
 
 @Component({
@@ -15,7 +16,8 @@ export class CadastroComponent {
   @ViewChild('f')cadastroForm!:NgForm;
 
   constructor(
-    private apiService: ApiService
+    private apiService: ApiService,
+    private alertaService: AlertaService
   ){}
 
   cadastrarLivro(form: NgForm){
@@ -24,19 +26,13 @@ export class CadastroComponent {
     this.apiService.cadastrarLivro(livro).subscribe(
       {
         next: res => {
-          alert("Cadastrado com Sucesso!")
+          this.alertaService.mostrarAlerta("Cadastrado com Sucesso!")
           this.atualizarImagemPreview("https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/1665px-No-Image-Placeholder.svg.png")
           this.cadastroForm.reset()
         },
         error: err => {
-          try {
-            const mensagemErro = err.error.split("\r\n")[0].split(":")[1]
-            alert("Erro: "+ mensagemErro + " !")
-          } catch (error) {
-            alert("Erro no Servidor!")
-            console.log(error)
-          }
-          
+          const mensagemErro = err.error?.split("\r\n")[0].split(":")[1]
+          this.alertaService.mostrarAlerta("Erro: "+ mensagemErro + " !", true)
         }
       }
     )

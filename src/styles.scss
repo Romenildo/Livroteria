@@ -30,3 +30,19 @@ body {
   background: var(--background);
   --webkit-font-smoothing: antialiased;
 }
+
+.msg-successo {
+  background-color: #28a745;
+  color: #fff;
+  width: 300px;
+  padding-left: 40px;
+  position: fixed!important;
+}
+
+.msg-error {
+  background-color: #e35e6b;
+  color: #fff;
+  width: 300px;
+  padding-left: 40px;
+  position: fixed!important;
+}

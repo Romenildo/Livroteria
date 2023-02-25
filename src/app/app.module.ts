@@ -3,6 +3,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { MatSnackBarModule } from  '@angular/material/snack-bar';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/template/header/header.component';
@@ -16,7 +19,8 @@ import { LivroDetalheComponent } from './components/lista-livros/livro-detalhe/l
 import { FiltroComponent } from './components/filtro/filtro.component';
 import { ListaRecentesComponent } from './components/lista-recentes/lista-recentes.component';
 import { EditarComponent } from './components/editar/editar.component';
-import { NgxPaginationModule } from 'ngx-pagination';
+import { FiltroLetrasComponent } from './components/filtro/filtro-letras/filtro-letras.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,14 +34,17 @@ import { NgxPaginationModule } from 'ngx-pagination';
     LivroDetalheComponent,
     FiltroComponent,
     ListaRecentesComponent,
-    EditarComponent
+    EditarComponent,
+    FiltroLetrasComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    MatSnackBarModule,
+    BrowserAnimationsModule 
   ],
   providers: [],
   bootstrap: [AppComponent]

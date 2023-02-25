@@ -1,4 +1,5 @@
 import { Component, Output, Input, EventEmitter } from '@angular/core';
+import { AlertaService } from 'src/app/services/alerta.service';
 import { ApiService } from 'src/app/services/api.service';
 import { LivroService } from 'src/app/services/livro.service';
 
@@ -14,7 +15,8 @@ export class LivroDetalheComponent {
 
   constructor(
     private livroService: LivroService,
-    private apiService: ApiService
+    private apiService: ApiService,
+    private alertaService: AlertaService
   ) { }
 
   deletarLivro() {
@@ -24,8 +26,9 @@ export class LivroDetalheComponent {
           this.livroService.livros$.next(
             this.livroService.livros$.value.filter(l => l.id !== this.livroDetalhe.id)
           )
+          this.alertaService.mostrarAlerta("Deletado com sucesso!")
         },
-        error: err => alert("Erro ao deletar o Livro!")
+        error: err => this.alertaService.mostrarAlerta("Erro ao deletar o Livro!", true)
       }
     )
   }

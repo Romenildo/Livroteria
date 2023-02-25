@@ -1,6 +1,7 @@
 import { Component, Output, Input, EventEmitter, ViewChild, AfterViewInit, OnInit,AfterContentInit } from '@angular/core';
 import { NgForm} from '@angular/forms';
 import { Livro } from 'src/app/model/livro.model';
+import { AlertaService } from 'src/app/services/alerta.service';
 import { ApiService } from 'src/app/services/api.service';
 import { LivroService } from 'src/app/services/livro.service';
 
@@ -18,7 +19,8 @@ export class EditarComponent implements OnInit{
 
   constructor(
     private livroService: LivroService,
-    private apiService: ApiService
+    private apiService: ApiService,
+    private alertaService: AlertaService
   ) {}
   
   ngOnInit(): void {
@@ -40,38 +42,34 @@ export class EditarComponent implements OnInit{
   }
 
   atualizarItem() {
-    if (this.editarForm.valid) {
-      const livro = this.tratarDadosForm(this.editarForm.value)
-      this.apiService.atualizarLivro(this.livroEdit.id, livro)
-        .subscribe({
-          next: res => {
-            const currentItems = this.livroService.livros$.getValue();
-                const itemUpdate: any = currentItems.find(l => l.id == this.livroEdit.id)
-                itemUpdate.titulo = this.editarForm.value.titulo;
-                itemUpdate.subTitulo = this.editarForm.value.subTitulo;
-                itemUpdate.edicao = this.editarForm.value.edicao;
-                itemUpdate.quantPaginas = this.editarForm.value.quantPaginas;
-                itemUpdate.dataPublicacao = this.editarForm.value.dataPublicacao;
-                itemUpdate.autores = this.separarAutores(this.editarForm.value.autor)
-                itemUpdate.editora = this.editarForm.value.editora;
-                itemUpdate.imagem = this.editarForm.value.imagem;
-                itemUpdate.resumo = this.editarForm.value.resumo;
-                this.imagemView = this.editarForm.value.imagem
-                this.fecharTelaEdit()
-          },
-          error: err => {
-            try {
-              const mensagemErro = err.error.split("\r\n")[0].split(":")[1]
-              alert("Erro: "+ mensagemErro + " !")
-            } catch (error) {
-              alert("Erro no Servidor ao Editar!")
-              console.log(error)
-            }
-          }
-        });
-    } else {
-      alert("Verifique os campos obrigatórios!");
-    }
+    const livro = this.tratarDadosForm(this.editarForm.value)
+
+    this.apiService.atualizarLivro(this.livroEdit.id, livro)
+      .subscribe({
+        next: res => {
+          const currentItems = this.livroService.livros$.getValue();
+              const itemUpdate: any = currentItems.find(l => l.id == this.livroEdit.id)
+              itemUpdate.titulo = this.editarForm.value.titulo;
+              itemUpdate.subTitulo = this.editarForm.value.subTitulo;
+              itemUpdate.edicao = this.editarForm.value.edicao;
+              itemUpdate.quantPaginas = this.editarForm.value.quantPaginas;
+              itemUpdate.dataPublicacao = this.editarForm.value.dataPublicacao;
+              itemUpdate.autores = this.separarAutores(this.editarForm.value.autor)
+              itemUpdate.editora = this.editarForm.value.editora;
+              itemUpdate.imagem = this.editarForm.value.imagem;
+              itemUpdate.resumo = this.editarForm.value.resumo;
+              this.imagemView = this.editarForm.value.imagem
+              this.alertaService.mostrarAlerta("Atualizado com sucesso!")
+              this.fecharTelaEdit()
+              
+
+        },
+        error: err => {
+          const mensagemErro = err.error?.split("\r\n")[0].split(":")[1]
+          this.alertaService.mostrarAlerta("Erro: "+ mensagemErro + " !",true)
+        }
+      });
+    
   }
 
   tratarDadosForm(form:Livro){

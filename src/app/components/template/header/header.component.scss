@@ -81,31 +81,6 @@
         }
     }
 
-    .lista-letras{
-        justify-content: center;
-        display: flex;
-        padding-top: 3px;
-        gap: 8px;
-        background-color: var(--background);
-        .item{
-            font-size: 0.8em;
-            padding: 5px 7px;
-            border-radius: 4px;
-            background-color:var(--backgroundDiv);
-            font-weight: bold;
-            &:hover{
-                cursor: pointer;
-                opacity: 0.6;
-                color: var(--primaria);
-                border: 1px solid gray;
-            }
-            &:active{
-                background-color: var(--primaria);
-            }
-            
-        }
-    }
-
     @media (max-width: 900px) {
         height: 175px;
 
@@ -114,9 +89,5 @@
             text-align: center;
         }
     }
-    @media (max-width: 740px) {
-        .lista-letras{
-            display: none;
-        }
-    }
+    
 }
